@@ -169,6 +169,25 @@
             color: #a78bfa;
         }
 
+        .project-badge.live {
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            color: #60a5fa;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .project-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
         footer {
             color: #64748b;
             font-size: 0.875rem;
@@ -199,7 +218,7 @@
 
         <div class="status">
             <span class="pulse"></span>
-            Currently building portfolio - Launching soon
+            Open to remote opportunities &mdash; $50k+
         </div>
 
         <div class="links">
@@ -225,25 +244,34 @@
 
         <div class="projects">
             <div class="project-card">
-                <h3>🏗️ JollyLab Infrastructure</h3>
-                <p>Production homelab with Docker, Terraform, and Kubernetes</p>
-                <span class="project-badge">In Development</span>
+                <h3>🏗️ BezaForge Infrastructure</h3>
+                <p>Production private cloud: Proxmox + Docker + 5-VLAN network + Prometheus/Grafana/Loki + GPU LLM inference (Ollama, ROCm)</p>
+                <span class="project-badge live">&#x25CF; Deployed</span>
+                <br>
+                <a href="https://github.com/thejollydev/bezaforge-infrastructure" class="project-link" target="_blank" rel="noopener">github.com/thejollydev/bezaforge-infrastructure</a>
+            </div>
+            <div class="project-card">
+                <h3>⚙️ arch-ansible</h3>
+                <p>Ansible playbooks for automated Arch Linux development environment setup with full toolchain provisioning</p>
+                <span class="project-badge live">&#x25CF; Deployed</span>
+                <br>
+                <a href="https://github.com/thejollydev/arch-ansible" class="project-link" target="_blank" rel="noopener">github.com/thejollydev/arch-ansible</a>
             </div>
             <div class="project-card">
                 <h3>🤖 Career Catalyst</h3>
-                <p>AI-powered job search platform with FastAPI</p>
+                <p>AI-powered job search automation platform with FastAPI, spaCy resume parsing, and ML-based job matching</p>
                 <span class="project-badge">In Development</span>
             </div>
             <div class="project-card">
                 <h3>📊 Homelab Pulse</h3>
-                <p>Real-time monitoring dashboard with React</p>
+                <p>Real-time infrastructure monitoring dashboard with WebSocket streaming, React + TypeScript frontend</p>
                 <span class="project-badge">In Development</span>
             </div>
         </div>
 
         <footer>
-            <p>© 2026 Joseph Soper | BS Computer Science (Expected 2026)</p>
-            <p style="margin-top: 0.5rem;">PCEP Certified | IBM Back-End Development Certificate</p>
+            <p>© 2026 Joseph Soper &mdash; Remote Only &mdash; Petoskey, MI</p>
+            <p style="margin-top: 0.5rem;">BS Computer Science (Expected 2026) &nbsp;|&nbsp; IBM Back-End Development Certificate &nbsp;|&nbsp; PCEP Certified &nbsp;|&nbsp; Google Cloud Architect (In Progress)</p>
         </footer>
     </div>
 </body>
