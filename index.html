@@ -121,8 +121,44 @@
     .hero-inner {
       position: relative;
       z-index: 1;
-      max-width: 860px;
+      max-width: 960px;
       margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .hero-text { flex: 1; min-width: 0; }
+
+    .hero-photo-wrap {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 4px;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--border-md);
+      box-shadow:
+        0 0 0 6px rgba(56,189,248,0.05),
+        0 0 40px rgba(56,189,248,0.12),
+        0 16px 48px rgba(0,0,0,0.5);
+      transition: border-color 0.3s, box-shadow 0.3s;
+      display: block;
+    }
+
+    .hero-photo:hover {
+      border-color: rgba(56,189,248,0.5);
+      box-shadow:
+        0 0 0 6px rgba(56,189,248,0.08),
+        0 0 48px rgba(56,189,248,0.2),
+        0 16px 48px rgba(0,0,0,0.5);
     }
 
     .hero-label {
@@ -305,26 +341,6 @@
     .about-text p:last-child { margin-bottom: 0; }
 
     .about-text strong { color: var(--text-1); font-weight: 500; }
-
-    .about-photo-wrap {
-      margin-bottom: 1.5rem;
-    }
-
-    .about-photo {
-      width: 120px;
-      height: 120px;
-      border-radius: 3px;
-      object-fit: cover;
-      border: 2px solid var(--border-md);
-      box-shadow: 0 0 0 1px rgba(56,189,248,0.08), 0 8px 32px rgba(0,0,0,0.4);
-      transition: border-color 0.3s, box-shadow 0.3s;
-      display: block;
-    }
-
-    .about-photo:hover {
-      border-color: var(--cyan);
-      box-shadow: 0 0 0 1px rgba(56,189,248,0.2), 0 0 24px rgba(56,189,248,0.15), 0 8px 32px rgba(0,0,0,0.4);
-    }
 
     .about-stats {
       display: flex;
@@ -581,6 +597,8 @@
       .nav-links { gap: 1.25rem; }
       .nav-links li:nth-child(n+3) { display: none; }
       section { padding: 4rem 1.25rem; }
+      .hero-inner { flex-direction: column-reverse; gap: 2rem; align-items: flex-start; }
+      .hero-photo { width: 100px; height: 100px; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .about-stats { flex-direction: row; flex-wrap: wrap; }
       .stat-card { flex: 1; min-width: 120px; }
@@ -609,37 +627,47 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-label">Infrastructure Engineer</div>
-      <h1 class="hero-name">Joseph<br><span>Soper</span></h1>
-      <p class="hero-title">
-        Infrastructure Engineer
-        <span class="sep">/</span>
-        DevOps
-        <span class="sep">/</span>
-        Technical Support
-      </p>
-      <p class="hero-subtitle">
-        <strong>20+ years Linux.</strong> I build production infrastructure from hardware to application layer — hypervisors, VLANs, containers, observability, and GPU inference.
-        <br><br>
-        Remote only &nbsp;·&nbsp; Petoskey, MI
-      </p>
-      <div class="hero-status">
-        <span class="dot-pulse"></span>
-        Open to remote opportunities &nbsp;·&nbsp; $50k+
+      <div class="hero-text">
+        <div class="hero-label">Infrastructure Engineer</div>
+        <h1 class="hero-name">Joseph<br><span>Soper</span></h1>
+        <p class="hero-title">
+          Infrastructure Engineer
+          <span class="sep">/</span>
+          DevOps
+          <span class="sep">/</span>
+          Technical Support
+        </p>
+        <p class="hero-subtitle">
+          <strong>20+ years Linux.</strong> I build production infrastructure from hardware to application layer — hypervisors, VLANs, containers, observability, and GPU inference.
+          <br><br>
+          Remote only &nbsp;·&nbsp; Petoskey, MI
+        </p>
+        <div class="hero-status">
+          <span class="dot-pulse"></span>
+          Open to remote opportunities &nbsp;·&nbsp; $50k+
+        </div>
+        <div class="hero-buttons">
+          <a href="https://github.com/thejollydev" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/joseph-soper-dev/" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:joseph@soper.dev" class="btn btn-ghost">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Email
+          </a>
+        </div>
       </div>
-      <div class="hero-buttons">
-        <a href="https://github.com/thejollydev" target="_blank" rel="noopener" class="btn btn-primary">
-          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/joseph-soper-dev/" target="_blank" rel="noopener" class="btn btn-ghost">
-          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"/></svg>
-          LinkedIn
-        </a>
-        <a href="mailto:joseph@soper.dev" class="btn btn-ghost">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          Email
-        </a>
+      <div class="hero-photo-wrap">
+        <img
+          src="https://github.com/thejollydev.png"
+          alt="Joseph Soper"
+          class="hero-photo"
+          loading="eager"
+        />
       </div>
     </div>
   </section>
@@ -659,14 +687,6 @@
           <p>I hold an IBM Back-End Development Professional Certificate and PCEP Python certification. I'm completing my BS in Computer Science and actively pursuing Google Cloud Professional Architect certification. I learn by building things that actually run in production.</p>
         </div>
         <div class="about-stats">
-          <div class="about-photo-wrap">
-            <img
-              src="https://github.com/thejollydev.png"
-              alt="Joseph Soper"
-              class="about-photo"
-              loading="lazy"
-            />
-          </div>
           <div class="stat-card">
             <div class="stat-number">20+</div>
             <div class="stat-label">Years daily Linux use</div>
