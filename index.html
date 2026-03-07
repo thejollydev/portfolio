@@ -306,6 +306,26 @@
 
     .about-text strong { color: var(--text-1); font-weight: 500; }
 
+    .about-photo-wrap {
+      margin-bottom: 1.5rem;
+    }
+
+    .about-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 3px;
+      object-fit: cover;
+      border: 2px solid var(--border-md);
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.08), 0 8px 32px rgba(0,0,0,0.4);
+      transition: border-color 0.3s, box-shadow 0.3s;
+      display: block;
+    }
+
+    .about-photo:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.2), 0 0 24px rgba(56,189,248,0.15), 0 8px 32px rgba(0,0,0,0.4);
+    }
+
     .about-stats {
       display: flex;
       flex-direction: column;
@@ -639,6 +659,14 @@
           <p>I hold an IBM Back-End Development Professional Certificate and PCEP Python certification. I'm completing my BS in Computer Science and actively pursuing Google Cloud Professional Architect certification. I learn by building things that actually run in production.</p>
         </div>
         <div class="about-stats">
+          <div class="about-photo-wrap">
+            <img
+              src="https://github.com/thejollydev.png"
+              alt="Joseph Soper"
+              class="about-photo"
+              loading="lazy"
+            />
+          </div>
           <div class="stat-card">
             <div class="stat-number">20+</div>
             <div class="stat-label">Years daily Linux use</div>
