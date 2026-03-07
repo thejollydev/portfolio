@@ -139,26 +139,29 @@
     }
 
     .hero-photo {
-      width: 200px;
-      height: 200px;
-      border-radius: 4px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
       object-fit: cover;
-      object-position: center top;
-      border: 2px solid var(--border-md);
+      object-position: center 12%;
+      border: 3px solid rgba(56,189,248,0.35);
+      outline: 1px solid rgba(56,189,248,0.1);
+      outline-offset: 5px;
       box-shadow:
-        0 0 0 6px rgba(56,189,248,0.05),
-        0 0 40px rgba(56,189,248,0.12),
-        0 16px 48px rgba(0,0,0,0.5);
-      transition: border-color 0.3s, box-shadow 0.3s;
+        0 0 0 8px rgba(56,189,248,0.04),
+        0 0 60px rgba(56,189,248,0.14),
+        0 20px 60px rgba(0,0,0,0.55);
+      transition: border-color 0.35s, box-shadow 0.35s, outline-color 0.35s;
       display: block;
     }
 
     .hero-photo:hover {
-      border-color: rgba(56,189,248,0.5);
+      border-color: rgba(56,189,248,0.65);
+      outline-color: rgba(56,189,248,0.2);
       box-shadow:
-        0 0 0 6px rgba(56,189,248,0.08),
-        0 0 48px rgba(56,189,248,0.2),
-        0 16px 48px rgba(0,0,0,0.5);
+        0 0 0 8px rgba(56,189,248,0.07),
+        0 0 80px rgba(56,189,248,0.22),
+        0 20px 60px rgba(0,0,0,0.55);
     }
 
     .hero-label {
@@ -598,7 +601,7 @@
       .nav-links li:nth-child(n+3) { display: none; }
       section { padding: 4rem 1.25rem; }
       .hero-inner { flex-direction: column-reverse; gap: 2rem; align-items: flex-start; }
-      .hero-photo { width: 100px; height: 100px; }
+      .hero-photo { width: 130px; height: 130px; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .about-stats { flex-direction: row; flex-wrap: wrap; }
       .stat-card { flex: 1; min-width: 120px; }
@@ -663,7 +666,7 @@
       </div>
       <div class="hero-photo-wrap">
         <img
-          src="https://github.com/thejollydev.png"
+          src="profile.png"
           alt="Joseph Soper"
           class="hero-photo"
           loading="eager"
