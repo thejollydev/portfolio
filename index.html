@@ -1,278 +1,875 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Joseph Soper - Full-Stack Developer specializing in Python, React, and DevOps infrastructure">
-    <meta name="author" content="Joseph Soper">
-    <title>Joseph Soper | Software Developer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Joseph Soper — Infrastructure Engineer, DevOps, Technical Support. 20+ years Linux. Remote only." />
+  <title>Joseph Soper — Infrastructure Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-0:      #070d1a;
+      --bg-1:      #0c1424;
+      --bg-2:      #111d33;
+      --bg-3:      #172240;
+      --border:    rgba(56, 189, 248, 0.12);
+      --border-md: rgba(56, 189, 248, 0.22);
+      --text-1:    #e2eaf6;
+      --text-2:    #94a3b8;
+      --text-3:    #5a7096;
+      --cyan:      #38bdf8;
+      --cyan-dim:  rgba(56, 189, 248, 0.08);
+      --green:     #4ade80;
+      --green-dim: rgba(74, 222, 128, 0.1);
+      --purple:    #a78bfa;
+      --purple-dim:rgba(167, 139, 250, 0.1);
+      --mono:      'IBM Plex Mono', monospace;
+      --sans:      'IBM Plex Sans', sans-serif;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #e4e4e7;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .container {
-            max-width: 800px;
-            text-align: center;
-            animation: fadeIn 1s ease-in;
-        }
+    html { scroll-behavior: smooth; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    body {
+      font-family: var(--sans);
+      background: var(--bg-0);
+      color: var(--text-1);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    /* ── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 56px;
+      background: rgba(7, 13, 26, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
 
-        .subtitle {
-            font-size: 1.5rem;
-            color: #94a3b8;
-            margin-bottom: 2rem;
-        }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cyan);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
 
-        .tagline {
-            font-size: 1.125rem;
-            color: #cbd5e1;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
 
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 9999px;
-            margin-bottom: 3rem;
-            font-size: 0.875rem;
-            color: #60a5fa;
-        }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-3);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
 
-        .pulse {
-            width: 8px;
-            height: 8px;
-            background: #60a5fa;
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
+    .nav-links a:hover { color: var(--cyan); }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
+    /* ── HERO ────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 2rem 4rem;
+      overflow: hidden;
+    }
 
-        .links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 3rem;
-        }
+    /* Blueprint grid background */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(56,189,248,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56,189,248,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
 
-        .link-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.75rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 0.5rem;
-            color: #e4e4e7;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
+    /* Radial glow */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: -5%;
+      width: 65%;
+      height: 80%;
+      background: radial-gradient(ellipse at 30% 40%, rgba(56,189,248,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
 
-        .link-button:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(59, 130, 246, 0.5);
-            transform: translateY(-2px);
-        }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+    }
 
-        .link-button.primary {
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-            border: none;
-            color: white;
-        }
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--cyan);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
 
-        .link-button.primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-        }
+    .hero-label::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 1px;
+      background: var(--cyan);
+    }
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
+    .hero-name {
+      font-family: var(--mono);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--text-1);
+      margin-bottom: 1.2rem;
+    }
 
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            text-align: left;
-            transition: all 0.3s ease;
-        }
+    .hero-name span { color: var(--cyan); }
 
-        .project-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(59, 130, 246, 0.3);
-            transform: translateY(-4px);
-        }
+    .hero-title {
+      font-family: var(--mono);
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      font-weight: 400;
+      color: var(--text-2);
+      letter-spacing: 0.04em;
+      margin-bottom: 1.5rem;
+    }
 
-        .project-card h3 {
-            color: #60a5fa;
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-        }
+    .hero-title .sep { color: var(--border-md); margin: 0 0.35em; }
 
-        .project-card p {
-            color: #94a3b8;
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-        }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--text-2);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
 
-        .project-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: rgba(139, 92, 246, 0.2);
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            color: #a78bfa;
-        }
+    .hero-subtitle strong {
+      color: var(--text-1);
+      font-weight: 500;
+    }
 
-        .project-badge.live {
-            background: rgba(34, 197, 94, 0.15);
-            color: #4ade80;
-        }
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--green);
+      background: var(--green-dim);
+      border: 1px solid rgba(74,222,128,0.2);
+      border-radius: 2px;
+      padding: 0.3rem 0.75rem;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.06em;
+    }
 
-        .project-link {
-            display: inline-block;
-            margin-top: 0.75rem;
-            font-size: 0.8rem;
-            color: #60a5fa;
-            text-decoration: none;
-            opacity: 0.8;
-        }
+    .dot-pulse {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse-dot 2.2s ease-in-out infinite;
+    }
 
-        .project-link:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.8); }
+    }
 
-        footer {
-            color: #64748b;
-            font-size: 0.875rem;
-        }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
 
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1.125rem;
-            }
-            
-            .projects {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 0.6rem 1.25rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: var(--bg-0);
+    }
+
+    .btn-primary:hover {
+      background: #7dd3fc;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(56,189,248,0.25);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-2);
+      border: 1px solid var(--border-md);
+    }
+
+    .btn-ghost:hover {
+      color: var(--text-1);
+      border-color: rgba(56,189,248,0.4);
+      background: var(--cyan-dim);
+    }
+
+    /* ── SECTION BASE ─────────────────────────────────────── */
+    section { padding: 6rem 2rem; }
+
+    .section-inner { max-width: 860px; margin: 0 auto; }
+
+    .section-tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--cyan);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-heading {
+      font-family: var(--mono);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 2.5rem;
+      line-height: 1.2;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── ABOUT ────────────────────────────────────────────── */
+    #about { background: var(--bg-1); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-2);
+      font-size: 0.98rem;
+      line-height: 1.8;
+      margin-bottom: 1.1rem;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-text strong { color: var(--text-1); font-weight: 500; }
+
+    .about-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .stat-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--cyan);
+      padding: 1rem 1.25rem;
+    }
+
+    .stat-number {
+      font-family: var(--mono);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--cyan);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-3);
+      font-family: var(--mono);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── SKILLS ───────────────────────────────────────────── */
+    #skills { background: var(--bg-0); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-group {
+      background: var(--bg-1);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.2s;
+    }
+
+    .skill-group:hover { border-color: var(--border-md); }
+
+    .skill-group-title {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--cyan);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .chip {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--text-2);
+      background: var(--bg-2);
+      border: 1px solid rgba(148,163,184,0.12);
+      padding: 0.2rem 0.55rem;
+      border-radius: 2px;
+      transition: all 0.15s;
+    }
+
+    .chip:hover {
+      color: var(--text-1);
+      border-color: rgba(56,189,248,0.3);
+      background: var(--cyan-dim);
+    }
+
+    /* ── PROJECTS ─────────────────────────────────────────── */
+    #projects { background: var(--bg-1); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--cyan);
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: all 0.2s;
+    }
+
+    .project-card.deployed { border-top-color: var(--green); }
+    .project-card.in-dev   { border-top-color: var(--purple); }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-md);
+    }
+
+    .project-card.deployed:hover { box-shadow: 0 8px 32px rgba(74,222,128,0.08); }
+    .project-card.in-dev:hover   { box-shadow: 0 8px 32px rgba(167,139,250,0.08); }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .project-name {
+      font-family: var(--mono);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-1);
+    }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .badge-deployed {
+      background: var(--green-dim);
+      color: var(--green);
+      border: 1px solid rgba(74,222,128,0.25);
+    }
+
+    .badge-dev {
+      background: var(--purple-dim);
+      color: var(--purple);
+      border: 1px solid rgba(167,139,250,0.25);
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--cyan);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+      margin-top: auto;
+    }
+
+    .project-link:hover { opacity: 1; }
+
+    /* ── CONTACT ──────────────────────────────────────────── */
+    #contact { background: var(--bg-0); }
+
+    .contact-box {
+      background: var(--bg-1);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--cyan);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .contact-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--cyan);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-heading {
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-meta {
+      font-size: 0.85rem;
+      color: var(--text-3);
+      font-family: var(--mono);
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer {
+      background: var(--bg-1);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    footer p {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--text-3);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── UTILITIES ────────────────────────────────────────── */
+    .text-cyan   { color: var(--cyan); }
+    .text-green  { color: var(--green); }
+    .text-purple { color: var(--purple); }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 700px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      .nav-links li:nth-child(n+3) { display: none; }
+      section { padding: 4rem 1.25rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-stats { flex-direction: row; flex-wrap: wrap; }
+      .stat-card { flex: 1; min-width: 120px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .contact-box {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+      }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Joseph Soper</h1>
-        <p class="subtitle">Full-Stack Developer & DevOps Engineer</p>
-        <p class="tagline">
-            Building production-grade applications and infrastructure. Transitioning from operations management to software development with hands-on projects and certifications.
-        </p>
 
-        <div class="status">
-            <span class="pulse"></span>
-            Open to remote opportunities &mdash; $50k+
-        </div>
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">joseph@soper.dev</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-        <div class="links">
-            <a href="https://github.com/thejollydev" class="link-button primary" target="_blank" rel="noopener">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/joseph-soper-dev/" class="link-button" target="_blank" rel="noopener">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-                LinkedIn
-            </a>
-            <a href="mailto:joseph@soper.dev" class="link-button">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-                Email
-            </a>
-        </div>
-
-        <div class="projects">
-            <div class="project-card">
-                <h3>🏗️ BezaForge Infrastructure</h3>
-                <p>Production private cloud: Proxmox + Docker + 5-VLAN network + Prometheus/Grafana/Loki + GPU LLM inference (Ollama, ROCm)</p>
-                <span class="project-badge live">&#x25CF; Deployed</span>
-                <br>
-                <a href="https://github.com/thejollydev/bezaforge-infrastructure" class="project-link" target="_blank" rel="noopener">github.com/thejollydev/bezaforge-infrastructure</a>
-            </div>
-            <div class="project-card">
-                <h3>⚙️ arch-ansible</h3>
-                <p>Ansible playbooks for automated Arch Linux development environment setup with full toolchain provisioning</p>
-                <span class="project-badge live">&#x25CF; Deployed</span>
-                <br>
-                <a href="https://github.com/thejollydev/arch-ansible" class="project-link" target="_blank" rel="noopener">github.com/thejollydev/arch-ansible</a>
-            </div>
-            <div class="project-card">
-                <h3>🤖 Career Catalyst</h3>
-                <p>AI-powered job search automation platform with FastAPI, spaCy resume parsing, and ML-based job matching</p>
-                <span class="project-badge">In Development</span>
-            </div>
-            <div class="project-card">
-                <h3>📊 Homelab Pulse</h3>
-                <p>Real-time infrastructure monitoring dashboard with WebSocket streaming, React + TypeScript frontend</p>
-                <span class="project-badge">In Development</span>
-            </div>
-        </div>
-
-        <footer>
-            <p>© 2026 Joseph Soper &mdash; Remote Only &mdash; Petoskey, MI</p>
-            <p style="margin-top: 0.5rem;">BS Computer Science (Expected 2026) &nbsp;|&nbsp; IBM Back-End Development Certificate &nbsp;|&nbsp; PCEP Certified &nbsp;|&nbsp; Google Cloud Architect (In Progress)</p>
-        </footer>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-label">Infrastructure Engineer</div>
+      <h1 class="hero-name">Joseph<br><span>Soper</span></h1>
+      <p class="hero-title">
+        Infrastructure Engineer
+        <span class="sep">/</span>
+        DevOps
+        <span class="sep">/</span>
+        Technical Support
+      </p>
+      <p class="hero-subtitle">
+        <strong>20+ years Linux.</strong> I build production infrastructure from hardware to application layer — hypervisors, VLANs, containers, observability, and GPU inference.
+        <br><br>
+        Remote only &nbsp;·&nbsp; Petoskey, MI
+      </p>
+      <div class="hero-status">
+        <span class="dot-pulse"></span>
+        Open to remote opportunities &nbsp;·&nbsp; $50k+
+      </div>
+      <div class="hero-buttons">
+        <a href="https://github.com/thejollydev" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/joseph-soper-dev/" target="_blank" rel="noopener" class="btn btn-ghost">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"/></svg>
+          LinkedIn
+        </a>
+        <a href="mailto:joseph@soper.dev" class="btn btn-ghost">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Email
+        </a>
+      </div>
     </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-tag">// 01 &nbsp; Profile</p>
+      <h2 class="section-heading">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I've been running Linux daily since I was 15. What started with building my first PC at 11 and teaching myself C++ from a library book became a career-long obsession with how systems work at every layer.</p>
+          <p>I spent a decade in operations — automotive finance management and hotel operations — where I developed a deep instinct for <strong>reliability, incident response, and systematic problem-solving</strong>. That same mindset now drives how I build and operate infrastructure.</p>
+          <p>In 2025 I designed and deployed <strong>BezaForge</strong>: a production private cloud built from hardware selection through application deployment. Proxmox hypervisor, GPU passthrough, 5-VLAN network, 10+ Docker services, full observability stack. Everything documented, monitored, and running.</p>
+          <p>I hold an IBM Back-End Development Professional Certificate and PCEP Python certification. I'm completing my BS in Computer Science and actively pursuing Google Cloud Professional Architect certification. I learn by building things that actually run in production.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Years daily Linux use</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Docker services deployed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">5</div>
+            <div class="stat-label">VLANs in production network</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2.5yr</div>
+            <div class="stat-label">Remote technical support</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-inner">
+      <p class="section-tag">// 02 &nbsp; Capabilities</p>
+      <h2 class="section-heading">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-title">Infrastructure</div>
+          <div class="skill-chips">
+            <span class="chip">Proxmox VE</span>
+            <span class="chip">Docker</span>
+            <span class="chip">Docker Compose</span>
+            <span class="chip">ZFS</span>
+            <span class="chip">KVM / QEMU</span>
+            <span class="chip">GPU Passthrough</span>
+            <span class="chip">ROCm</span>
+            <span class="chip">Ollama</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Networking</div>
+          <div class="skill-chips">
+            <span class="chip">VLAN Design</span>
+            <span class="chip">Omada SDN</span>
+            <span class="chip">Traefik v3</span>
+            <span class="chip">DNS (AdGuard)</span>
+            <span class="chip">TLS / SSL</span>
+            <span class="chip">Let's Encrypt</span>
+            <span class="chip">WireGuard</span>
+            <span class="chip">Firewall Rules</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Observability</div>
+          <div class="skill-chips">
+            <span class="chip">Prometheus</span>
+            <span class="chip">Grafana</span>
+            <span class="chip">Loki</span>
+            <span class="chip">Promtail</span>
+            <span class="chip">Uptime Kuma</span>
+            <span class="chip">Node Exporter</span>
+            <span class="chip">cAdvisor</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Linux</div>
+          <div class="skill-chips">
+            <span class="chip">Arch Linux</span>
+            <span class="chip">Debian</span>
+            <span class="chip">Ubuntu</span>
+            <span class="chip">systemd</span>
+            <span class="chip">Storage mgmt</span>
+            <span class="chip">Hardening</span>
+            <span class="chip">SSH</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Automation & Dev</div>
+          <div class="skill-chips">
+            <span class="chip">Python</span>
+            <span class="chip">Bash</span>
+            <span class="chip">Ansible</span>
+            <span class="chip">Terraform</span>
+            <span class="chip">Git</span>
+            <span class="chip">GitHub Actions</span>
+            <span class="chip">FastAPI</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Cloud & Services</div>
+          <div class="skill-chips">
+            <span class="chip">Google Cloud</span>
+            <span class="chip">Cloudflare</span>
+            <span class="chip">Gitea</span>
+            <span class="chip">Harbor</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">Redis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-inner">
+      <p class="section-tag">// 03 &nbsp; Work</p>
+      <h2 class="section-heading">Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card deployed">
+          <div class="project-header">
+            <span class="project-name">BezaForge Infrastructure</span>
+            <span class="badge badge-deployed">&#x25CF; Deployed</span>
+          </div>
+          <p class="project-desc">
+            Production private cloud built on Proxmox VE. 5-VLAN Omada SDN network with inter-VLAN firewall rules. 10+ Docker services with Traefik v3 wildcard SSL. Full observability stack: Prometheus, Grafana, Loki, Uptime Kuma. GPU-accelerated LLM inference server with AMD RX 7900 XT passthrough and ROCm 7.2.0.
+          </p>
+          <div class="project-tags">
+            <span class="chip">Proxmox</span>
+            <span class="chip">Docker</span>
+            <span class="chip">Prometheus</span>
+            <span class="chip">Grafana</span>
+            <span class="chip">Traefik</span>
+            <span class="chip">ZFS</span>
+            <span class="chip">ROCm</span>
+          </div>
+          <a href="https://github.com/thejollydev/bezaforge-infrastructure" target="_blank" rel="noopener" class="project-link">
+            <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            github.com/thejollydev/bezaforge-infrastructure
+          </a>
+        </div>
+
+        <div class="project-card deployed">
+          <div class="project-header">
+            <span class="project-name">arch-ansible</span>
+            <span class="badge badge-deployed">&#x25CF; Deployed</span>
+          </div>
+          <p class="project-desc">
+            Ansible playbooks for fully automated Arch Linux development environment provisioning from bare metal. Handles package installation, dotfiles setup, service configuration, and developer toolchain — idempotent and reproducible.
+          </p>
+          <div class="project-tags">
+            <span class="chip">Ansible</span>
+            <span class="chip">Arch Linux</span>
+            <span class="chip">Bash</span>
+            <span class="chip">systemd</span>
+          </div>
+          <a href="https://github.com/thejollydev/arch-ansible" target="_blank" rel="noopener" class="project-link">
+            <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            github.com/thejollydev/arch-ansible
+          </a>
+        </div>
+
+        <div class="project-card in-dev">
+          <div class="project-header">
+            <span class="project-name">BezaChain</span>
+            <span class="badge badge-dev">In Development</span>
+          </div>
+          <p class="project-desc">
+            Async AI orchestration API with FastAPI, Celery task queue, Redis, and PostgreSQL. Integrates locally-hosted Ollama LLM inference with intelligent routing and background workflow execution.
+          </p>
+          <div class="project-tags">
+            <span class="chip">FastAPI</span>
+            <span class="chip">Celery</span>
+            <span class="chip">Redis</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">Python</span>
+            <span class="chip">Ollama</span>
+          </div>
+        </div>
+
+        <div class="project-card in-dev">
+          <div class="project-header">
+            <span class="project-name">Homelab Pulse</span>
+            <span class="badge badge-dev">In Development</span>
+          </div>
+          <p class="project-desc">
+            Real-time infrastructure monitoring dashboard with WebSocket streaming from Prometheus to a React + TypeScript frontend. Sub-second metric delivery, time-series visualization, and alert management.
+          </p>
+          <div class="project-tags">
+            <span class="chip">React</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">WebSocket</span>
+            <span class="chip">Prometheus</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-tag">// 04 &nbsp; Contact</p>
+      <h2 class="section-heading">Let's Connect</h2>
+      <div class="contact-box">
+        <div>
+          <div class="contact-label">Status</div>
+          <h3 class="contact-heading">Open to Remote Opportunities</h3>
+          <p class="contact-meta">Role: Infrastructure Engineer · Junior DevOps · Technical Support Engineer</p>
+          <p class="contact-meta">Salary: $50,000+ &nbsp;·&nbsp; Remote only &nbsp;·&nbsp; Petoskey, MI</p>
+          <div class="contact-links">
+            <a href="mailto:joseph@soper.dev" class="btn btn-primary">joseph@soper.dev</a>
+            <a href="https://www.linkedin.com/in/joseph-soper-dev/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+            <a href="https://github.com/thejollydev" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div class="hero-status" style="display:inline-flex;">
+            <span class="dot-pulse"></span>
+            Available now
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Joseph Soper &nbsp;·&nbsp; Remote Only &nbsp;·&nbsp; Petoskey, MI</p>
+    <p>BS CS Expected 2026 &nbsp;·&nbsp; IBM Backend Dev Cert &nbsp;·&nbsp; PCEP &nbsp;·&nbsp; GCP Architect (In Progress)</p>
+  </footer>
+
 </body>
 </html>
