@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Joseph Soper — Software Engineer, DevOps, AI Integration. Python, FastAPI, infrastructure, LLM inference. 20+ years Linux. Remote only." />
-  <title>Joseph Soper — Software Engineer</title>
+  <meta name="description" content="Joseph Soper — AI Software Engineer. LLM integration, autonomous agents, RAG systems, FastAPI, LangGraph, MCP, Vertex AI. Remote only." />
+  <title>Joseph Soper — AI Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -32,7 +32,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -96,19 +95,17 @@
       overflow: hidden;
     }
 
-    /* Blueprint grid background */
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(56,189,248,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(56,189,248,0.035) 1px, transparent 1px);
+        linear-gradient(rgba(56,189,248,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56,189,248,0.03) 1px, transparent 1px);
       background-size: 48px 48px;
       pointer-events: none;
     }
 
-    /* Radial glow */
     .hero::after {
       content: '';
       position: absolute;
@@ -116,7 +113,7 @@
       left: -5%;
       width: 65%;
       height: 80%;
-      background: radial-gradient(ellipse at 30% 40%, rgba(56,189,248,0.06) 0%, transparent 65%);
+      background: radial-gradient(ellipse at 30% 40%, rgba(167,139,250,0.07) 0%, rgba(56,189,248,0.04) 40%, transparent 70%);
       pointer-events: none;
     }
 
@@ -146,23 +143,23 @@
       border-radius: 50%;
       object-fit: cover;
       object-position: center 12%;
-      border: 3px solid rgba(56,189,248,0.35);
-      outline: 1px solid rgba(56,189,248,0.1);
+      border: 3px solid rgba(167,139,250,0.35);
+      outline: 1px solid rgba(167,139,250,0.1);
       outline-offset: 5px;
       box-shadow:
-        0 0 0 8px rgba(56,189,248,0.04),
-        0 0 60px rgba(56,189,248,0.14),
+        0 0 0 8px rgba(167,139,250,0.04),
+        0 0 60px rgba(167,139,250,0.12),
         0 20px 60px rgba(0,0,0,0.55);
       transition: border-color 0.35s, box-shadow 0.35s, outline-color 0.35s;
       display: block;
     }
 
     .hero-photo:hover {
-      border-color: rgba(56,189,248,0.65);
-      outline-color: rgba(56,189,248,0.2);
+      border-color: rgba(167,139,250,0.65);
+      outline-color: rgba(167,139,250,0.2);
       box-shadow:
-        0 0 0 8px rgba(56,189,248,0.07),
-        0 0 80px rgba(56,189,248,0.22),
+        0 0 0 8px rgba(167,139,250,0.07),
+        0 0 80px rgba(167,139,250,0.2),
         0 20px 60px rgba(0,0,0,0.55);
     }
 
@@ -170,7 +167,7 @@
       font-family: var(--mono);
       font-size: 0.7rem;
       font-weight: 500;
-      color: var(--cyan);
+      color: var(--purple);
       letter-spacing: 0.14em;
       text-transform: uppercase;
       margin-bottom: 1.25rem;
@@ -184,7 +181,7 @@
       display: inline-block;
       width: 18px;
       height: 1px;
-      background: var(--cyan);
+      background: var(--purple);
     }
 
     .hero-name {
@@ -197,7 +194,7 @@
       margin-bottom: 1.2rem;
     }
 
-    .hero-name span { color: var(--cyan); }
+    .hero-name span { color: var(--purple); }
 
     .hero-title {
       font-family: var(--mono);
@@ -211,18 +208,15 @@
     .hero-title .sep { color: var(--border-md); margin: 0 0.35em; }
 
     .hero-subtitle {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 300;
       color: var(--text-2);
-      max-width: 520px;
+      max-width: 540px;
       margin-bottom: 2.5rem;
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
-    .hero-subtitle strong {
-      color: var(--text-1);
-      font-weight: 500;
-    }
+    .hero-subtitle strong { color: var(--text-1); font-weight: 500; }
 
     .hero-status {
       display: inline-flex;
@@ -274,14 +268,14 @@
     }
 
     .btn-primary {
-      background: var(--cyan);
+      background: var(--purple);
       color: var(--bg-0);
     }
 
     .btn-primary:hover {
-      background: #7dd3fc;
+      background: #c4b5fd;
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(56,189,248,0.25);
+      box-shadow: 0 6px 20px rgba(167,139,250,0.3);
     }
 
     .btn-ghost {
@@ -292,20 +286,20 @@
 
     .btn-ghost:hover {
       color: var(--text-1);
-      border-color: rgba(56,189,248,0.4);
-      background: var(--cyan-dim);
+      border-color: rgba(167,139,250,0.4);
+      background: var(--purple-dim);
     }
 
     /* ── SECTION BASE ─────────────────────────────────────── */
     section { padding: 6rem 2rem; }
 
-    .section-inner { max-width: 860px; margin: 0 auto; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
 
     .section-tag {
       font-family: var(--mono);
       font-size: 0.65rem;
       font-weight: 600;
-      color: var(--cyan);
+      color: var(--purple);
       letter-spacing: 0.18em;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
@@ -344,44 +338,43 @@
     }
 
     .about-text p:last-child { margin-bottom: 0; }
-
     .about-text strong { color: var(--text-1); font-weight: 500; }
 
     .about-stats {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 1.1rem;
     }
 
     .stat-card {
       background: var(--bg-2);
       border: 1px solid var(--border);
-      border-left: 2px solid var(--cyan);
-      padding: 1rem 1.25rem;
+      border-left: 2px solid var(--purple);
+      padding: 0.9rem 1.25rem;
     }
 
+    .stat-card.cyan   { border-left-color: var(--cyan); }
     .stat-card.green  { border-left-color: var(--green); }
-    .stat-card.purple { border-left-color: var(--purple); }
     .stat-card.amber  { border-left-color: var(--amber); }
 
     .stat-number {
       font-family: var(--mono);
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      color: var(--cyan);
+      color: var(--purple);
       line-height: 1;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
 
-    .stat-card.green  .stat-number { color: var(--green); }
-    .stat-card.purple .stat-number { color: var(--purple); }
-    .stat-card.amber  .stat-number { color: var(--amber); }
+    .stat-card.cyan  .stat-number { color: var(--cyan); }
+    .stat-card.green .stat-number { color: var(--green); }
+    .stat-card.amber .stat-number { color: var(--amber); }
 
     .stat-label {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-3);
       font-family: var(--mono);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
     }
 
     /* ── SKILLS ───────────────────────────────────────────── */
@@ -389,8 +382,8 @@
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
     }
 
     .skill-group {
@@ -402,8 +395,14 @@
 
     .skill-group:hover { border-color: var(--border-md); }
 
-    .skill-group.highlight { border-color: rgba(167,139,250,0.2); }
-    .skill-group.highlight:hover { border-color: rgba(167,139,250,0.4); }
+    /* AI section spans full width */
+    .skill-group.ai-primary {
+      grid-column: 1 / -1;
+      border-color: rgba(167,139,250,0.25);
+      background: linear-gradient(135deg, rgba(167,139,250,0.04) 0%, var(--bg-1) 60%);
+    }
+
+    .skill-group.ai-primary:hover { border-color: rgba(167,139,250,0.45); }
 
     .skill-group-title {
       font-family: var(--mono);
@@ -417,7 +416,10 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .skill-group.highlight .skill-group-title { color: var(--purple); }
+    .skill-group.ai-primary .skill-group-title {
+      color: var(--purple);
+      font-size: 0.7rem;
+    }
 
     .skill-chips {
       display: flex;
@@ -431,7 +433,7 @@
       color: var(--text-2);
       background: var(--bg-2);
       border: 1px solid rgba(148,163,184,0.12);
-      padding: 0.2rem 0.55rem;
+      padding: 0.22rem 0.6rem;
       border-radius: 2px;
       transition: all 0.15s;
     }
@@ -443,11 +445,12 @@
     }
 
     .chip.ai {
-      border-color: rgba(167,139,250,0.18);
+      border-color: rgba(167,139,250,0.2);
+      color: #c4b5fd;
     }
 
     .chip.ai:hover {
-      border-color: rgba(167,139,250,0.4);
+      border-color: rgba(167,139,250,0.5);
       background: var(--purple-dim);
       color: var(--purple);
     }
@@ -473,8 +476,11 @@
     }
 
     .project-card.deployed  { border-top-color: var(--green); }
-    .project-card.in-dev    { border-top-color: var(--purple); }
-    .project-card.ai-focus  { border-top-color: var(--amber); }
+    .project-card.in-dev    { border-top-color: var(--cyan); }
+    .project-card.ai-focus  {
+      border-top-color: var(--purple);
+      background: linear-gradient(160deg, rgba(167,139,250,0.05) 0%, var(--bg-2) 50%);
+    }
 
     .project-card:hover {
       transform: translateY(-3px);
@@ -482,8 +488,8 @@
     }
 
     .project-card.deployed:hover  { box-shadow: 0 8px 32px rgba(74,222,128,0.08); }
-    .project-card.in-dev:hover    { box-shadow: 0 8px 32px rgba(167,139,250,0.08); }
-    .project-card.ai-focus:hover  { box-shadow: 0 8px 32px rgba(251,191,36,0.08); }
+    .project-card.in-dev:hover    { box-shadow: 0 8px 32px rgba(56,189,248,0.08); }
+    .project-card.ai-focus:hover  { box-shadow: 0 8px 32px rgba(167,139,250,0.1); }
 
     .project-header {
       display: flex;
@@ -518,21 +524,21 @@
     }
 
     .badge-dev {
-      background: var(--purple-dim);
-      color: var(--purple);
-      border: 1px solid rgba(167,139,250,0.25);
+      background: var(--cyan-dim);
+      color: var(--cyan);
+      border: 1px solid rgba(56,189,248,0.25);
     }
 
     .badge-ai {
-      background: var(--amber-dim);
-      color: var(--amber);
-      border: 1px solid rgba(251,191,36,0.25);
+      background: var(--purple-dim);
+      color: var(--purple);
+      border: 1px solid rgba(167,139,250,0.3);
     }
 
     .project-desc {
       font-size: 0.88rem;
       color: var(--text-2);
-      line-height: 1.7;
+      line-height: 1.75;
       flex: 1;
     }
 
@@ -563,7 +569,7 @@
     .contact-box {
       background: var(--bg-1);
       border: 1px solid var(--border);
-      border-top: 2px solid var(--cyan);
+      border-top: 2px solid var(--purple);
       padding: 3rem;
       display: grid;
       grid-template-columns: 1fr auto;
@@ -575,7 +581,7 @@
       font-family: var(--mono);
       font-size: 0.65rem;
       font-weight: 600;
-      color: var(--cyan);
+      color: var(--purple);
       letter-spacing: 0.16em;
       text-transform: uppercase;
       margin-bottom: 0.6rem;
@@ -622,13 +628,12 @@
       letter-spacing: 0.04em;
     }
 
-    /* ── UTILITIES ────────────────────────────────────────── */
-    .text-cyan   { color: var(--cyan); }
-    .text-green  { color: var(--green); }
-    .text-purple { color: var(--purple); }
-    .text-amber  { color: var(--amber); }
-
     /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 800px) {
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .skill-group.ai-primary { grid-column: 1 / -1; }
+    }
+
     @media (max-width: 700px) {
       nav { padding: 0 1.25rem; }
       .nav-links { gap: 1.25rem; }
@@ -638,12 +643,10 @@
       .hero-photo { width: 200px; height: 200px; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .about-stats { flex-direction: row; flex-wrap: wrap; }
-      .stat-card { flex: 1; min-width: 120px; }
+      .stat-card { flex: 1; min-width: 140px; }
+      .skills-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
-      .contact-box {
-        grid-template-columns: 1fr;
-        padding: 2rem 1.5rem;
-      }
+      .contact-box { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
       footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -665,17 +668,17 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-text">
-        <div class="hero-label">Software Engineer &amp; Systems Builder</div>
+        <div class="hero-label">AI Software Engineer</div>
         <h1 class="hero-name">Joseph<br><span>Soper</span></h1>
         <p class="hero-title">
+          AI &amp; Agent Systems
+          <span class="sep">/</span>
           Software Development
           <span class="sep">/</span>
-          DevOps &amp; Infrastructure
-          <span class="sep">/</span>
-          AI Integration
+          DevOps
         </p>
         <p class="hero-subtitle">
-          <strong>20+ years Linux.</strong> I build things end-to-end — backend APIs, automated infrastructure, and AI-powered systems. Self-hosted LLM inference, production Kubernetes-adjacent deployments, and clean Python from API design through deployment.
+          I build <strong>AI-powered software</strong> — autonomous agent pipelines, RAG systems with graph and vector memory, LLM-integrated APIs, and the production infrastructure to run it all. I work with models at the API level, chain them into workflows with tools like LangGraph and MCP, and deploy everything self-hosted or in the cloud.
           <br><br>
           Remote only &nbsp;·&nbsp; Petoskey, MI
         </p>
@@ -699,12 +702,7 @@
         </div>
       </div>
       <div class="hero-photo-wrap">
-        <img
-          src="profile.png"
-          alt="Joseph Soper"
-          class="hero-photo"
-          loading="eager"
-        />
+        <img src="profile.png" alt="Joseph Soper" class="hero-photo" loading="eager" />
       </div>
     </div>
   </section>
@@ -718,27 +716,27 @@
       <h2 class="section-heading">About Me</h2>
       <div class="about-grid">
         <div class="about-text">
-          <p>I've been running Linux daily since I was 15. What started with building my first PC at 11 and teaching myself C++ from a library book turned into a lifelong obsession with how systems work at every layer — hardware, OS, network, API, and AI.</p>
-          <p>My background is deliberately full-stack in the systems sense: I write <strong>Python backends with FastAPI</strong>, design REST APIs, wire up databases, and then deploy the whole thing on infrastructure I also built. I don't hand off to ops — I am ops.</p>
-          <p>In 2025 I designed and built <strong>BezaForge</strong>: a production private cloud from hardware selection through full-stack deployment. Proxmox hypervisor with GPU passthrough, 5-VLAN SDN network, a dozen Docker services behind Traefik with wildcard SSL, and a full observability stack. Every component is automated, documented, and monitored.</p>
-          <p>I'm also deeply invested in <strong>AI integration</strong> — not just using models, but running them: self-hosted LLM inference with AMD GPU acceleration, building agentic pipelines, and architecting memory-backed AI systems. I hold an IBM Back-End Development Professional Certificate, PCEP Python certification, and am completing my BS in Computer Science while pursuing Google Cloud Professional Architect certification.</p>
+          <p>I'm a software engineer focused on building <strong>AI-powered systems</strong> — the kind that do real work autonomously. That means designing agent pipelines with multi-step reasoning, wiring tools and APIs into LLM workflows via MCP and LangGraph, and building the backend infrastructure that keeps it all running reliably in production.</p>
+          <p>My development stack is Python-first: <strong>FastAPI backends, async task queues, REST API design, PostgreSQL, and Redis</strong>. I've integrated AI at the API level across multiple providers — Anthropic, Google Vertex AI, and locally-hosted models via Ollama and LM Studio — and I understand how to move beyond basic prompting into <strong>context engineering, retrieval-augmented generation, and persistent memory architectures</strong> with vector and graph databases.</p>
+          <p>I also hold an uncommon advantage for a software engineer: I can take a project from code all the way through production deployment on infrastructure I built myself. My homelab runs a production private cloud — Proxmox hypervisor, GPU passthrough for local LLM inference, container orchestration, full observability stack — automated end-to-end with Terraform and Ansible. I learn by shipping things that actually run.</p>
+          <p>IBM Back-End Development Professional Certificate. PCEP Python certification. Completing BS Computer Science. Google Cloud Professional Architect in progress.</p>
         </div>
         <div class="about-stats">
           <div class="stat-card">
-            <div class="stat-number">20+</div>
-            <div class="stat-label">Years daily Linux use</div>
+            <div class="stat-number">AI-First</div>
+            <div class="stat-label">Agent pipelines, RAG, MCP, LangGraph, multi-provider LLM integration</div>
+          </div>
+          <div class="stat-card cyan">
+            <div class="stat-number">Full-Stack</div>
+            <div class="stat-label">Python · FastAPI · REST APIs · PostgreSQL · async workflows</div>
           </div>
           <div class="stat-card green">
-            <div class="stat-number">5+</div>
-            <div class="stat-label">Years Python development</div>
-          </div>
-          <div class="stat-card purple">
-            <div class="stat-number">AI</div>
-            <div class="stat-label">Self-hosted LLM inference (ROCm + Ollama)</div>
+            <div class="stat-number">Deployed</div>
+            <div class="stat-label">Self-hosted LLM inference, production cloud infra, GPU-accelerated AI stack</div>
           </div>
           <div class="stat-card amber">
-            <div class="stat-number">12+</div>
-            <div class="stat-label">Production Docker services deployed</div>
+            <div class="stat-number">IaC</div>
+            <div class="stat-label">Terraform + Ansible automation from bare metal to running service</div>
           </div>
         </div>
       </div>
@@ -754,12 +752,40 @@
       <h2 class="section-heading">Technical Skills</h2>
       <div class="skills-grid">
 
+        <!-- AI — full width, most prominent -->
+        <div class="skill-group ai-primary">
+          <div class="skill-group-title">AI Engineering &amp; Agent Systems</div>
+          <div class="skill-chips">
+            <span class="chip ai">Autonomous Agents</span>
+            <span class="chip ai">LangGraph</span>
+            <span class="chip ai">MCP Servers</span>
+            <span class="chip ai">Multi-Agent Orchestration</span>
+            <span class="chip ai">RAG Pipelines</span>
+            <span class="chip ai">Context Engineering</span>
+            <span class="chip ai">Prompt Engineering</span>
+            <span class="chip ai">Tool Use / Function Calling</span>
+            <span class="chip ai">Vertex AI</span>
+            <span class="chip ai">Anthropic API</span>
+            <span class="chip ai">Ollama</span>
+            <span class="chip ai">LM Studio</span>
+            <span class="chip ai">LiteLLM</span>
+            <span class="chip ai">Open WebUI</span>
+            <span class="chip ai">Qdrant</span>
+            <span class="chip ai">Neo4j</span>
+            <span class="chip ai">Mem0</span>
+            <span class="chip ai">Vector Search</span>
+            <span class="chip ai">Knowledge Graphs</span>
+            <span class="chip ai">Antigravity (Google)</span>
+            <span class="chip ai">ROCm / GPU Inference</span>
+          </div>
+        </div>
+
         <div class="skill-group">
           <div class="skill-group-title">Software Development</div>
           <div class="skill-chips">
             <span class="chip">Python</span>
             <span class="chip">FastAPI</span>
-            <span class="chip">REST APIs</span>
+            <span class="chip">REST API Design</span>
             <span class="chip">Async / Celery</span>
             <span class="chip">PostgreSQL</span>
             <span class="chip">Redis</span>
@@ -769,31 +795,13 @@
           </div>
         </div>
 
-        <div class="skill-group highlight">
-          <div class="skill-group-title">AI &amp; Machine Learning</div>
-          <div class="skill-chips">
-            <span class="chip ai">Ollama</span>
-            <span class="chip ai">LiteLLM</span>
-            <span class="chip ai">Open WebUI</span>
-            <span class="chip ai">LLM Inference</span>
-            <span class="chip ai">RAG Pipelines</span>
-            <span class="chip ai">Vector Search</span>
-            <span class="chip ai">Qdrant</span>
-            <span class="chip ai">Neo4j</span>
-            <span class="chip ai">Mem0</span>
-            <span class="chip ai">Prompt Engineering</span>
-            <span class="chip ai">Agent Orchestration</span>
-            <span class="chip ai">ROCm / GPU</span>
-          </div>
-        </div>
-
         <div class="skill-group">
           <div class="skill-group-title">DevOps &amp; Automation</div>
           <div class="skill-chips">
             <span class="chip">Docker</span>
             <span class="chip">Docker Compose</span>
-            <span class="chip">Ansible</span>
             <span class="chip">Terraform</span>
+            <span class="chip">Ansible</span>
             <span class="chip">GitHub Actions</span>
             <span class="chip">CI/CD</span>
             <span class="chip">IaC</span>
@@ -801,42 +809,18 @@
         </div>
 
         <div class="skill-group">
-          <div class="skill-group-title">Infrastructure</div>
+          <div class="skill-group-title">Cloud &amp; Infrastructure</div>
           <div class="skill-chips">
+            <span class="chip">Google Cloud</span>
+            <span class="chip">Cloudflare</span>
             <span class="chip">Proxmox VE</span>
             <span class="chip">KVM / QEMU</span>
             <span class="chip">ZFS</span>
-            <span class="chip">GPU Passthrough</span>
-            <span class="chip">Linux (Arch, Debian, Ubuntu)</span>
-            <span class="chip">systemd</span>
-            <span class="chip">SSH</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-title">Networking</div>
-          <div class="skill-chips">
-            <span class="chip">VLAN Design</span>
-            <span class="chip">Omada SDN</span>
+            <span class="chip">Linux</span>
             <span class="chip">Traefik v3</span>
-            <span class="chip">DNS (AdGuard)</span>
-            <span class="chip">TLS / SSL</span>
-            <span class="chip">Let's Encrypt</span>
             <span class="chip">WireGuard</span>
-            <span class="chip">Firewall Rules</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-title">Observability &amp; Cloud</div>
-          <div class="skill-chips">
             <span class="chip">Prometheus</span>
             <span class="chip">Grafana</span>
-            <span class="chip">Loki</span>
-            <span class="chip">Uptime Kuma</span>
-            <span class="chip">Google Cloud</span>
-            <span class="chip">Cloudflare</span>
-            <span class="chip">Harbor</span>
           </div>
         </div>
 
@@ -856,20 +840,42 @@
         <div class="project-card ai-focus">
           <div class="project-header">
             <span class="project-name">forge-cortex</span>
-            <span class="badge badge-ai">AI Project</span>
+            <span class="badge badge-ai">AI System</span>
           </div>
           <p class="project-desc">
-            Self-hosted AI assistant with persistent, graph-based long-term memory. FastAPI backend integrates Open WebUI for conversation, LiteLLM for model routing, Ollama for local LLM inference (AMD GPU), Qdrant for vector search, Neo4j for knowledge graph, and Mem0 for memory management. Deployed on a dedicated VM in the AI VLAN.
+            Self-hosted AI assistant built around a <strong style="color:var(--text-1);font-weight:500;">persistent, graph-backed memory architecture</strong>. FastAPI orchestration layer connects Open WebUI, LiteLLM for multi-model routing, locally-hosted LLMs via Ollama (AMD GPU, ROCm), Qdrant for vector retrieval, Neo4j for knowledge graph storage, and Mem0 for long-term memory management. Designed as a foundation for agentic workflows — the system remembers context across sessions and can retrieve relevant knowledge to ground its responses.
           </p>
           <div class="project-tags">
+            <span class="chip ai">Agents</span>
+            <span class="chip ai">RAG</span>
+            <span class="chip ai">LiteLLM</span>
+            <span class="chip ai">Ollama</span>
+            <span class="chip ai">Qdrant</span>
+            <span class="chip ai">Neo4j</span>
+            <span class="chip ai">Mem0</span>
             <span class="chip">FastAPI</span>
             <span class="chip">Python</span>
-            <span class="chip">Ollama</span>
-            <span class="chip">LiteLLM</span>
-            <span class="chip">Neo4j</span>
-            <span class="chip">Qdrant</span>
-            <span class="chip">Mem0</span>
             <span class="chip">Open WebUI</span>
+          </div>
+        </div>
+
+        <div class="project-card ai-focus">
+          <div class="project-header">
+            <span class="project-name">BezaChain</span>
+            <span class="badge badge-ai">AI System</span>
+          </div>
+          <p class="project-desc">
+            Async AI orchestration platform with intelligent routing across local and cloud LLMs. FastAPI backend exposes a clean REST API surface; Celery handles background task execution with Redis as broker and PostgreSQL for persistent job tracking. Routes requests based on task complexity, cost, and latency requirements — local Ollama models for throughput, cloud providers for capability.
+          </p>
+          <div class="project-tags">
+            <span class="chip ai">LLM Routing</span>
+            <span class="chip ai">Ollama</span>
+            <span class="chip ai">LangChain</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">Python</span>
+            <span class="chip">Celery</span>
+            <span class="chip">Redis</span>
+            <span class="chip">PostgreSQL</span>
           </div>
         </div>
 
@@ -879,42 +885,22 @@
             <span class="badge badge-deployed">&#x25CF; Deployed</span>
           </div>
           <p class="project-desc">
-            Production private cloud built on Proxmox VE. 5-VLAN Omada SDN network with inter-VLAN firewall policy. 12+ Docker services with Traefik v3 wildcard SSL. Full observability: Prometheus, Grafana, Loki, Uptime Kuma. GPU-accelerated LLM inference with AMD RX 7900 XT passthrough and ROCm 7.2.0. IaC via Terraform and Ansible.
+            Production private cloud built from bare metal — Proxmox VE hypervisor, AMD GPU passthrough for local LLM inference (ROCm 7.2), 5-VLAN Omada SDN with inter-VLAN firewall policy, 12+ Docker services behind Traefik v3 with wildcard TLS, and a full observability stack (Prometheus, Grafana, Loki, Uptime Kuma). Entire environment is codified: Terraform manages VM provisioning, Ansible handles configuration.
           </p>
           <div class="project-tags">
-            <span class="chip">Proxmox</span>
-            <span class="chip">Docker</span>
             <span class="chip">Terraform</span>
             <span class="chip">Ansible</span>
+            <span class="chip">Proxmox</span>
+            <span class="chip">Docker</span>
             <span class="chip">Prometheus</span>
             <span class="chip">Grafana</span>
             <span class="chip">Traefik</span>
             <span class="chip">ZFS</span>
-            <span class="chip">ROCm</span>
           </div>
           <a href="https://github.com/thejollydev/bezaforge-infrastructure" target="_blank" rel="noopener" class="project-link">
             <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
             github.com/thejollydev/bezaforge-infrastructure
           </a>
-        </div>
-
-        <div class="project-card in-dev">
-          <div class="project-header">
-            <span class="project-name">BezaChain</span>
-            <span class="badge badge-dev">In Development</span>
-          </div>
-          <p class="project-desc">
-            Async AI orchestration platform built with FastAPI, Celery task queue, Redis, and PostgreSQL. Routes requests across locally-hosted Ollama models and cloud LLMs based on task type. Background workflow execution with persistent job tracking and a clean REST API surface.
-          </p>
-          <div class="project-tags">
-            <span class="chip">FastAPI</span>
-            <span class="chip">Python</span>
-            <span class="chip">Celery</span>
-            <span class="chip">Redis</span>
-            <span class="chip">PostgreSQL</span>
-            <span class="chip">Ollama</span>
-            <span class="chip">LangChain</span>
-          </div>
         </div>
 
         <div class="project-card deployed">
@@ -923,7 +909,7 @@
             <span class="badge badge-deployed">&#x25CF; Deployed</span>
           </div>
           <p class="project-desc">
-            Ansible playbooks for fully automated Arch Linux development environment provisioning from bare metal. Handles package installation, dotfiles setup, service configuration, and developer toolchain — idempotent and reproducible.
+            Ansible playbooks for fully automated Arch Linux developer environment provisioning from bare metal — packages, dotfiles, services, and developer toolchain in a single idempotent run.
           </p>
           <div class="project-tags">
             <span class="chip">Ansible</span>
@@ -952,7 +938,7 @@
         <div>
           <div class="contact-label">Status</div>
           <h3 class="contact-heading">Open to Remote Opportunities</h3>
-          <p class="contact-meta">Targeting: Software Developer · DevOps Engineer · AI/Automation · Technical Support</p>
+          <p class="contact-meta">Targeting: AI Engineer · Software Developer · DevOps · Automation · Technical Support</p>
           <p class="contact-meta">Remote only &nbsp;·&nbsp; Petoskey, MI</p>
           <div class="contact-links">
             <a href="mailto:joseph@soper.dev" class="btn btn-primary">joseph@soper.dev</a>
