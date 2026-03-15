@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Joseph Soper — Infrastructure Engineer, DevOps, Technical Support. 20+ years Linux. Remote only." />
-  <title>Joseph Soper — Infrastructure Engineer</title>
+  <meta name="description" content="Joseph Soper — Software Engineer, DevOps, AI Integration. Python, FastAPI, infrastructure, LLM inference. 20+ years Linux. Remote only." />
+  <title>Joseph Soper — Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -25,6 +25,8 @@
       --green-dim: rgba(74, 222, 128, 0.1);
       --purple:    #a78bfa;
       --purple-dim:rgba(167, 139, 250, 0.1);
+      --amber:     #fbbf24;
+      --amber-dim: rgba(251, 191, 36, 0.1);
       --mono:      'IBM Plex Mono', monospace;
       --sans:      'IBM Plex Sans', sans-serif;
     }
@@ -358,6 +360,10 @@
       padding: 1rem 1.25rem;
     }
 
+    .stat-card.green  { border-left-color: var(--green); }
+    .stat-card.purple { border-left-color: var(--purple); }
+    .stat-card.amber  { border-left-color: var(--amber); }
+
     .stat-number {
       font-family: var(--mono);
       font-size: 1.8rem;
@@ -366,6 +372,10 @@
       line-height: 1;
       margin-bottom: 0.25rem;
     }
+
+    .stat-card.green  .stat-number { color: var(--green); }
+    .stat-card.purple .stat-number { color: var(--purple); }
+    .stat-card.amber  .stat-number { color: var(--amber); }
 
     .stat-label {
       font-size: 0.8rem;
@@ -392,6 +402,9 @@
 
     .skill-group:hover { border-color: var(--border-md); }
 
+    .skill-group.highlight { border-color: rgba(167,139,250,0.2); }
+    .skill-group.highlight:hover { border-color: rgba(167,139,250,0.4); }
+
     .skill-group-title {
       font-family: var(--mono);
       font-size: 0.65rem;
@@ -403,6 +416,8 @@
       padding-bottom: 0.6rem;
       border-bottom: 1px solid var(--border);
     }
+
+    .skill-group.highlight .skill-group-title { color: var(--purple); }
 
     .skill-chips {
       display: flex;
@@ -427,6 +442,16 @@
       background: var(--cyan-dim);
     }
 
+    .chip.ai {
+      border-color: rgba(167,139,250,0.18);
+    }
+
+    .chip.ai:hover {
+      border-color: rgba(167,139,250,0.4);
+      background: var(--purple-dim);
+      color: var(--purple);
+    }
+
     /* ── PROJECTS ─────────────────────────────────────────── */
     #projects { background: var(--bg-1); }
 
@@ -447,16 +472,18 @@
       transition: all 0.2s;
     }
 
-    .project-card.deployed { border-top-color: var(--green); }
-    .project-card.in-dev   { border-top-color: var(--purple); }
+    .project-card.deployed  { border-top-color: var(--green); }
+    .project-card.in-dev    { border-top-color: var(--purple); }
+    .project-card.ai-focus  { border-top-color: var(--amber); }
 
     .project-card:hover {
       transform: translateY(-3px);
       border-color: var(--border-md);
     }
 
-    .project-card.deployed:hover { box-shadow: 0 8px 32px rgba(74,222,128,0.08); }
-    .project-card.in-dev:hover   { box-shadow: 0 8px 32px rgba(167,139,250,0.08); }
+    .project-card.deployed:hover  { box-shadow: 0 8px 32px rgba(74,222,128,0.08); }
+    .project-card.in-dev:hover    { box-shadow: 0 8px 32px rgba(167,139,250,0.08); }
+    .project-card.ai-focus:hover  { box-shadow: 0 8px 32px rgba(251,191,36,0.08); }
 
     .project-header {
       display: flex;
@@ -494,6 +521,12 @@
       background: var(--purple-dim);
       color: var(--purple);
       border: 1px solid rgba(167,139,250,0.25);
+    }
+
+    .badge-ai {
+      background: var(--amber-dim);
+      color: var(--amber);
+      border: 1px solid rgba(251,191,36,0.25);
     }
 
     .project-desc {
@@ -593,12 +626,13 @@
     .text-cyan   { color: var(--cyan); }
     .text-green  { color: var(--green); }
     .text-purple { color: var(--purple); }
+    .text-amber  { color: var(--amber); }
 
     /* ── RESPONSIVE ───────────────────────────────────────── */
     @media (max-width: 700px) {
       nav { padding: 0 1.25rem; }
       .nav-links { gap: 1.25rem; }
-      .nav-links li:nth-child(n+3) { display: none; }
+      .nav-links li:nth-child(n+4) { display: none; }
       section { padding: 4rem 1.25rem; }
       .hero-inner { flex-direction: column-reverse; gap: 2rem; align-items: flex-start; }
       .hero-photo { width: 200px; height: 200px; }
@@ -631,17 +665,17 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-text">
-        <div class="hero-label">Infrastructure Engineer</div>
+        <div class="hero-label">Software Engineer &amp; Systems Builder</div>
         <h1 class="hero-name">Joseph<br><span>Soper</span></h1>
         <p class="hero-title">
-          Infrastructure Engineer
+          Software Development
           <span class="sep">/</span>
-          DevOps
+          DevOps &amp; Infrastructure
           <span class="sep">/</span>
-          Technical Support
+          AI Integration
         </p>
         <p class="hero-subtitle">
-          <strong>20+ years Linux.</strong> I build production infrastructure from hardware to application layer — hypervisors, VLANs, containers, observability, and GPU inference.
+          <strong>20+ years Linux.</strong> I build things end-to-end — backend APIs, automated infrastructure, and AI-powered systems. Self-hosted LLM inference, production Kubernetes-adjacent deployments, and clean Python from API design through deployment.
           <br><br>
           Remote only &nbsp;·&nbsp; Petoskey, MI
         </p>
@@ -684,27 +718,27 @@
       <h2 class="section-heading">About Me</h2>
       <div class="about-grid">
         <div class="about-text">
-          <p>I've been running Linux daily since I was 15. What started with building my first PC at 11 and teaching myself C++ from a library book became a career-long obsession with how systems work at every layer.</p>
-          <p>I spent a decade in operations — automotive finance management and hotel operations — where I developed a deep instinct for <strong>reliability, incident response, and systematic problem-solving</strong>. That same mindset now drives how I build and operate infrastructure.</p>
-          <p>In 2025 I designed and deployed <strong>BezaForge</strong>: a production private cloud built from hardware selection through application deployment. Proxmox hypervisor, GPU passthrough, 5-VLAN network, 10+ Docker services, full observability stack. Everything documented, monitored, and running.</p>
-          <p>I hold an IBM Back-End Development Professional Certificate and PCEP Python certification. I'm completing my BS in Computer Science and actively pursuing Google Cloud Professional Architect certification. I learn by building things that actually run in production.</p>
+          <p>I've been running Linux daily since I was 15. What started with building my first PC at 11 and teaching myself C++ from a library book turned into a lifelong obsession with how systems work at every layer — hardware, OS, network, API, and AI.</p>
+          <p>My background is deliberately full-stack in the systems sense: I write <strong>Python backends with FastAPI</strong>, design REST APIs, wire up databases, and then deploy the whole thing on infrastructure I also built. I don't hand off to ops — I am ops.</p>
+          <p>In 2025 I designed and built <strong>BezaForge</strong>: a production private cloud from hardware selection through full-stack deployment. Proxmox hypervisor with GPU passthrough, 5-VLAN SDN network, a dozen Docker services behind Traefik with wildcard SSL, and a full observability stack. Every component is automated, documented, and monitored.</p>
+          <p>I'm also deeply invested in <strong>AI integration</strong> — not just using models, but running them: self-hosted LLM inference with AMD GPU acceleration, building agentic pipelines, and architecting memory-backed AI systems. I hold an IBM Back-End Development Professional Certificate, PCEP Python certification, and am completing my BS in Computer Science while pursuing Google Cloud Professional Architect certification.</p>
         </div>
         <div class="about-stats">
           <div class="stat-card">
             <div class="stat-number">20+</div>
             <div class="stat-label">Years daily Linux use</div>
           </div>
-          <div class="stat-card">
-            <div class="stat-number">10+</div>
-            <div class="stat-label">Docker services deployed</div>
+          <div class="stat-card green">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Years Python development</div>
           </div>
-          <div class="stat-card">
-            <div class="stat-number">5</div>
-            <div class="stat-label">VLANs in production network</div>
+          <div class="stat-card purple">
+            <div class="stat-number">AI</div>
+            <div class="stat-label">Self-hosted LLM inference (ROCm + Ollama)</div>
           </div>
-          <div class="stat-card">
-            <div class="stat-number">2.5yr</div>
-            <div class="stat-label">Remote technical support</div>
+          <div class="stat-card amber">
+            <div class="stat-number">12+</div>
+            <div class="stat-label">Production Docker services deployed</div>
           </div>
         </div>
       </div>
@@ -719,19 +753,66 @@
       <p class="section-tag">// 02 &nbsp; Capabilities</p>
       <h2 class="section-heading">Technical Skills</h2>
       <div class="skills-grid">
+
+        <div class="skill-group">
+          <div class="skill-group-title">Software Development</div>
+          <div class="skill-chips">
+            <span class="chip">Python</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">REST APIs</span>
+            <span class="chip">Async / Celery</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">Redis</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Bash</span>
+            <span class="chip">Git</span>
+          </div>
+        </div>
+
+        <div class="skill-group highlight">
+          <div class="skill-group-title">AI &amp; Machine Learning</div>
+          <div class="skill-chips">
+            <span class="chip ai">Ollama</span>
+            <span class="chip ai">LiteLLM</span>
+            <span class="chip ai">Open WebUI</span>
+            <span class="chip ai">LLM Inference</span>
+            <span class="chip ai">RAG Pipelines</span>
+            <span class="chip ai">Vector Search</span>
+            <span class="chip ai">Qdrant</span>
+            <span class="chip ai">Neo4j</span>
+            <span class="chip ai">Mem0</span>
+            <span class="chip ai">Prompt Engineering</span>
+            <span class="chip ai">Agent Orchestration</span>
+            <span class="chip ai">ROCm / GPU</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">DevOps &amp; Automation</div>
+          <div class="skill-chips">
+            <span class="chip">Docker</span>
+            <span class="chip">Docker Compose</span>
+            <span class="chip">Ansible</span>
+            <span class="chip">Terraform</span>
+            <span class="chip">GitHub Actions</span>
+            <span class="chip">CI/CD</span>
+            <span class="chip">IaC</span>
+          </div>
+        </div>
+
         <div class="skill-group">
           <div class="skill-group-title">Infrastructure</div>
           <div class="skill-chips">
             <span class="chip">Proxmox VE</span>
-            <span class="chip">Docker</span>
-            <span class="chip">Docker Compose</span>
-            <span class="chip">ZFS</span>
             <span class="chip">KVM / QEMU</span>
+            <span class="chip">ZFS</span>
             <span class="chip">GPU Passthrough</span>
-            <span class="chip">ROCm</span>
-            <span class="chip">Ollama</span>
+            <span class="chip">Linux (Arch, Debian, Ubuntu)</span>
+            <span class="chip">systemd</span>
+            <span class="chip">SSH</span>
           </div>
         </div>
+
         <div class="skill-group">
           <div class="skill-group-title">Networking</div>
           <div class="skill-chips">
@@ -745,53 +826,20 @@
             <span class="chip">Firewall Rules</span>
           </div>
         </div>
+
         <div class="skill-group">
-          <div class="skill-group-title">Observability</div>
+          <div class="skill-group-title">Observability &amp; Cloud</div>
           <div class="skill-chips">
             <span class="chip">Prometheus</span>
             <span class="chip">Grafana</span>
             <span class="chip">Loki</span>
-            <span class="chip">Promtail</span>
             <span class="chip">Uptime Kuma</span>
-            <span class="chip">Node Exporter</span>
-            <span class="chip">cAdvisor</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Linux</div>
-          <div class="skill-chips">
-            <span class="chip">Arch Linux</span>
-            <span class="chip">Debian</span>
-            <span class="chip">Ubuntu</span>
-            <span class="chip">systemd</span>
-            <span class="chip">Storage mgmt</span>
-            <span class="chip">Hardening</span>
-            <span class="chip">SSH</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Automation & Dev</div>
-          <div class="skill-chips">
-            <span class="chip">Python</span>
-            <span class="chip">Bash</span>
-            <span class="chip">Ansible</span>
-            <span class="chip">Terraform</span>
-            <span class="chip">Git</span>
-            <span class="chip">GitHub Actions</span>
-            <span class="chip">FastAPI</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Cloud & Services</div>
-          <div class="skill-chips">
             <span class="chip">Google Cloud</span>
             <span class="chip">Cloudflare</span>
-            <span class="chip">Gitea</span>
             <span class="chip">Harbor</span>
-            <span class="chip">PostgreSQL</span>
-            <span class="chip">Redis</span>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -805,17 +853,39 @@
       <h2 class="section-heading">Projects</h2>
       <div class="projects-grid">
 
+        <div class="project-card ai-focus">
+          <div class="project-header">
+            <span class="project-name">forge-cortex</span>
+            <span class="badge badge-ai">AI Project</span>
+          </div>
+          <p class="project-desc">
+            Self-hosted AI assistant with persistent, graph-based long-term memory. FastAPI backend integrates Open WebUI for conversation, LiteLLM for model routing, Ollama for local LLM inference (AMD GPU), Qdrant for vector search, Neo4j for knowledge graph, and Mem0 for memory management. Deployed on a dedicated VM in the AI VLAN.
+          </p>
+          <div class="project-tags">
+            <span class="chip">FastAPI</span>
+            <span class="chip">Python</span>
+            <span class="chip">Ollama</span>
+            <span class="chip">LiteLLM</span>
+            <span class="chip">Neo4j</span>
+            <span class="chip">Qdrant</span>
+            <span class="chip">Mem0</span>
+            <span class="chip">Open WebUI</span>
+          </div>
+        </div>
+
         <div class="project-card deployed">
           <div class="project-header">
             <span class="project-name">BezaForge Infrastructure</span>
             <span class="badge badge-deployed">&#x25CF; Deployed</span>
           </div>
           <p class="project-desc">
-            Production private cloud built on Proxmox VE. 5-VLAN Omada SDN network with inter-VLAN firewall rules. 10+ Docker services with Traefik v3 wildcard SSL. Full observability stack: Prometheus, Grafana, Loki, Uptime Kuma. GPU-accelerated LLM inference server with AMD RX 7900 XT passthrough and ROCm 7.2.0.
+            Production private cloud built on Proxmox VE. 5-VLAN Omada SDN network with inter-VLAN firewall policy. 12+ Docker services with Traefik v3 wildcard SSL. Full observability: Prometheus, Grafana, Loki, Uptime Kuma. GPU-accelerated LLM inference with AMD RX 7900 XT passthrough and ROCm 7.2.0. IaC via Terraform and Ansible.
           </p>
           <div class="project-tags">
             <span class="chip">Proxmox</span>
             <span class="chip">Docker</span>
+            <span class="chip">Terraform</span>
+            <span class="chip">Ansible</span>
             <span class="chip">Prometheus</span>
             <span class="chip">Grafana</span>
             <span class="chip">Traefik</span>
@@ -826,6 +896,25 @@
             <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
             github.com/thejollydev/bezaforge-infrastructure
           </a>
+        </div>
+
+        <div class="project-card in-dev">
+          <div class="project-header">
+            <span class="project-name">BezaChain</span>
+            <span class="badge badge-dev">In Development</span>
+          </div>
+          <p class="project-desc">
+            Async AI orchestration platform built with FastAPI, Celery task queue, Redis, and PostgreSQL. Routes requests across locally-hosted Ollama models and cloud LLMs based on task type. Background workflow execution with persistent job tracking and a clean REST API surface.
+          </p>
+          <div class="project-tags">
+            <span class="chip">FastAPI</span>
+            <span class="chip">Python</span>
+            <span class="chip">Celery</span>
+            <span class="chip">Redis</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">Ollama</span>
+            <span class="chip">LangChain</span>
+          </div>
         </div>
 
         <div class="project-card deployed">
@@ -848,41 +937,6 @@
           </a>
         </div>
 
-        <div class="project-card in-dev">
-          <div class="project-header">
-            <span class="project-name">BezaChain</span>
-            <span class="badge badge-dev">In Development</span>
-          </div>
-          <p class="project-desc">
-            Async AI orchestration API with FastAPI, Celery task queue, Redis, and PostgreSQL. Integrates locally-hosted Ollama LLM inference with intelligent routing and background workflow execution.
-          </p>
-          <div class="project-tags">
-            <span class="chip">FastAPI</span>
-            <span class="chip">Celery</span>
-            <span class="chip">Redis</span>
-            <span class="chip">PostgreSQL</span>
-            <span class="chip">Python</span>
-            <span class="chip">Ollama</span>
-          </div>
-        </div>
-
-        <div class="project-card in-dev">
-          <div class="project-header">
-            <span class="project-name">Homelab Pulse</span>
-            <span class="badge badge-dev">In Development</span>
-          </div>
-          <p class="project-desc">
-            Real-time infrastructure monitoring dashboard with WebSocket streaming from Prometheus to a React + TypeScript frontend. Sub-second metric delivery, time-series visualization, and alert management.
-          </p>
-          <div class="project-tags">
-            <span class="chip">React</span>
-            <span class="chip">TypeScript</span>
-            <span class="chip">FastAPI</span>
-            <span class="chip">WebSocket</span>
-            <span class="chip">Prometheus</span>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -898,7 +952,7 @@
         <div>
           <div class="contact-label">Status</div>
           <h3 class="contact-heading">Open to Remote Opportunities</h3>
-          <p class="contact-meta">Role: Infrastructure Engineer · Junior DevOps · Technical Support Engineer</p>
+          <p class="contact-meta">Targeting: Software Developer · DevOps Engineer · AI/Automation · Technical Support</p>
           <p class="contact-meta">Remote only &nbsp;·&nbsp; Petoskey, MI</p>
           <div class="contact-links">
             <a href="mailto:joseph@soper.dev" class="btn btn-primary">joseph@soper.dev</a>
@@ -919,7 +973,7 @@
   <!-- FOOTER -->
   <footer>
     <p>© 2026 Joseph Soper &nbsp;·&nbsp; Remote Only &nbsp;·&nbsp; Petoskey, MI</p>
-    <p>BS CS Expected 2026 &nbsp;·&nbsp; IBM Backend Dev Cert &nbsp;·&nbsp; PCEP &nbsp;·&nbsp; GCP Architect (In Progress)</p>
+    <p>BS CS Expected 2027 &nbsp;·&nbsp; IBM Backend Dev Cert &nbsp;·&nbsp; PCEP &nbsp;·&nbsp; GCP Architect (In Progress)</p>
   </footer>
 
 </body>
