@@ -161,6 +161,21 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 5px 18px rgba(234,88,12,0.3); }
+    .nav-toggle {
+      display: none;                 /* desktop: hidden — links show inline */
+      background: none;
+      border: 1px solid var(--border-md);
+      border-radius: 3px;
+      color: var(--text-2);
+      font-family: var(--mono);
+      font-size: 1.05rem;
+      line-height: 1;
+      width: 36px; height: 30px;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-toggle:hover { color: var(--amber); border-color: var(--border-warm); }
 
     /* ── SIGNATURE: gradient headline + beam divider ───────────────── */
     .flow {
@@ -550,7 +565,24 @@
     }
     @media (max-width: 720px) {
       nav { padding: 0 1.2rem; }
-      .nav-links { display: none; }
+      .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+      .nav-right {
+        position: absolute;
+        top: 58px; left: 0; right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.25rem 1.2rem 1.1rem;
+        background: rgba(5, 6, 9, 0.97);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border);
+        display: none;
+      }
+      nav.nav-open .nav-right { display: flex; }
+      .nav-links { flex-direction: column; gap: 0; width: 100%; }
+      .nav-links a { display: block; padding: 0.9rem 0.1rem; font-size: 0.8rem; border-bottom: 1px solid var(--border); }
+      .nav-cta { margin-top: 1rem; text-align: center; padding: 0.7rem; font-size: 0.72rem; }
       section { padding: 4.5rem 1.2rem; }
       .hero { padding: 7rem 1.2rem 3rem; }
       .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 2.25rem; }
@@ -575,7 +607,7 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">joseph@soper.dev</a>
-    <div class="nav-right">
+    <div class="nav-right" id="nav-menu">
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#studio">Studio</a></li>
@@ -584,6 +616,7 @@
       </ul>
       <a href="https://bezacore.com" target="_blank" rel="noopener" class="nav-cta">BezaCore Labs ↗</a>
     </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
   </nav>
 
   <main>
@@ -859,6 +892,24 @@
         card.style.setProperty('--my', ((ev.clientY - r.top) / r.height) * 100 + '%');
       });
     });
+
+    // Mobile nav toggle (hamburger dropdown at <=720px)
+    const navEl = document.querySelector('nav');
+    const navToggle = document.querySelector('.nav-toggle');
+    if (navToggle && navEl) {
+      const setOpen = (open) => {
+        navEl.classList.toggle('nav-open', open);
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        navToggle.textContent = open ? '✕' : '☰';
+      };
+      navToggle.addEventListener('click', () => setOpen(!navEl.classList.contains('nav-open')));
+      // tapping a section link closes the menu
+      document.querySelectorAll('#nav-menu .nav-links a').forEach((a) =>
+        a.addEventListener('click', () => setOpen(false)));
+      // reset if resized back up to desktop
+      window.addEventListener('resize', () => { if (window.innerWidth > 720) setOpen(false); });
+    }
   </script>
 
 </body>
