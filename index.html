@@ -3,46 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Joseph Soper — AI Software Engineer. LLM integration, autonomous agents, RAG systems, FastAPI, LangGraph, MCP, Vertex AI. Remote only." />
-  <title>Joseph Soper — AI Software Engineer</title>
+  <meta name="description" content="Joseph Soper — Founder of BezaCore Labs, a DevOps, AI & software studio. AI/agent systems, LLM integration, RAG, FastAPI, Terraform/Ansible, self-hosted cloud. Open to select remote roles & collaboration." />
+  <meta name="theme-color" content="#050609" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Joseph Soper — Founder, BezaCore Labs" />
+  <meta property="og:description" content="I build software, AI systems, and the infrastructure to run them." />
+  <meta property="og:url" content="https://soper.dev" />
+
+  <title>Joseph Soper — Founder, BezaCore Labs · AI & Software Engineer</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
     :root {
-      --bg-0:      #070d1a;
-      --bg-1:      #0c1424;
-      --bg-2:      #111d33;
-      --bg-3:      #172240;
-      --border:    rgba(56, 189, 248, 0.12);
-      --border-md: rgba(56, 189, 248, 0.22);
-      --text-1:    #e2eaf6;
-      --text-2:    #94a3b8;
-      --text-3:    #5a7096;
-      --cyan:      #38bdf8;
-      --cyan-dim:  rgba(56, 189, 248, 0.08);
-      --green:     #4ade80;
-      --green-dim: rgba(74, 222, 128, 0.1);
-      --purple:    #a78bfa;
-      --purple-dim:rgba(167, 139, 250, 0.1);
+      /* Ember & Cobalt — shared with bezacore.com (brand.md, locked 2026-05-09) */
+      --base:      #050609;   /* near-black page surface */
+      --ink:       #0a0e1f;   /* lifted panels */
+      --panel:     #0b1120;   /* card surface */
+      --panel-2:   #0f1730;   /* nested surface */
+
+      --paper:     #fafafa;
+      --text-1:    #e8ebf4;
+      --text-2:    #97a1b8;
+      --text-3:    #5c6883;
+
+      --gold:      #f59e0b;
       --amber:     #fbbf24;
-      --amber-dim: rgba(251, 191, 36, 0.1);
-      --mono:      'IBM Plex Mono', monospace;
-      --sans:      'IBM Plex Sans', sans-serif;
+      --fire:      #ea580c;
+      --ember:     #b91c1c;
+      --cobalt:    #1d4ed8;
+      --azure:     #3b82f6;
+
+      --warm-dim:  rgba(245, 158, 11, 0.10);
+      --cool-dim:  rgba(59, 130, 246, 0.09);
+      --fire-dim:  rgba(234, 88, 12, 0.10);
+
+      --border:    rgba(59, 130, 246, 0.13);
+      --border-md: rgba(59, 130, 246, 0.24);
+      --border-warm: rgba(245, 158, 11, 0.22);
+
+      --mono:      'IBM Plex Mono', ui-monospace, monospace;
+      --sans:      'IBM Plex Sans', system-ui, sans-serif;
+
+      --ease:      cubic-bezier(0.2, 0.65, 0.3, 1);
+      --maxw:      960px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
     body {
       font-family: var(--sans);
-      background: var(--bg-0);
+      background: var(--base);
       color: var(--text-1);
       line-height: 1.65;
       overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
     }
 
-    /* ── NAV ─────────────────────────────────────────────── */
+    /* ── ATMOSPHERE: fixed circuit grid + warm/cool bloom + grain ───── */
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .backdrop::before {
+      /* faint blueprint grid */
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59,130,246,0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.028) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: radial-gradient(120% 90% at 50% 0%, #000 30%, transparent 85%);
+      -webkit-mask-image: radial-gradient(120% 90% at 50% 0%, #000 30%, transparent 85%);
+    }
+    .backdrop::after {
+      /* forge glow — warm top-left, cool drift */
+      content: '';
+      position: absolute;
+      top: -20%; left: -10%;
+      width: 80%; height: 90%;
+      background:
+        radial-gradient(45% 55% at 30% 35%, rgba(234,88,12,0.09) 0%, transparent 60%),
+        radial-gradient(50% 60% at 45% 50%, rgba(29,78,216,0.07) 0%, transparent 65%);
+      filter: blur(8px);
+    }
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.04;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    main, nav, footer { position: relative; z-index: 2; }
+
+    /* ── NAV ───────────────────────────────────────────────────────── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -51,27 +118,23 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 2rem;
-      height: 56px;
-      background: rgba(7, 13, 26, 0.88);
-      backdrop-filter: blur(12px);
+      height: 58px;
+      background: rgba(5, 6, 9, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
-
     .nav-logo {
       font-family: var(--mono);
       font-size: 0.8rem;
       font-weight: 600;
-      color: var(--cyan);
-      letter-spacing: 0.04em;
+      color: var(--amber);
+      letter-spacing: 0.02em;
       text-decoration: none;
     }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
+    .nav-logo::before { content: '⬦ '; color: var(--azure); }
+    .nav-right { display: flex; align-items: center; gap: 1.75rem; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
     .nav-links a {
       font-family: var(--mono);
       font-size: 0.72rem;
@@ -82,885 +145,718 @@
       text-transform: uppercase;
       transition: color 0.2s;
     }
+    .nav-links a:hover { color: var(--amber); }
+    .nav-cta {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--base);
+      background: linear-gradient(100deg, var(--gold), var(--fire));
+      padding: 0.4rem 0.8rem;
+      border-radius: 3px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 5px 18px rgba(234,88,12,0.3); }
 
-    .nav-links a:hover { color: var(--cyan); }
-
-    /* ── HERO ────────────────────────────────────────────── */
-    .hero {
+    /* ── SIGNATURE: gradient headline + beam divider ───────────────── */
+    .flow {
+      background: linear-gradient(100deg, var(--gold), var(--fire) 42%, var(--cobalt) 78%, var(--gold));
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .beam {
       position: relative;
+      height: 1px;
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      overflow: hidden;
+      background: color-mix(in oklab, var(--paper) 7%, transparent);
+    }
+    .beam::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -170px;
+      height: 1px; width: 170px;
+      background: linear-gradient(90deg, transparent, var(--amber), var(--azure), transparent);
+      box-shadow: 0 0 10px rgba(234,88,12,0.6);
+    }
+
+    /* ── HERO ──────────────────────────────────────────────────────── */
+    .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
       padding: 8rem 2rem 4rem;
-      overflow: hidden;
     }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(56,189,248,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(56,189,248,0.03) 1px, transparent 1px);
-      background-size: 48px 48px;
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: -10%;
-      left: -5%;
-      width: 65%;
-      height: 80%;
-      background: radial-gradient(ellipse at 30% 40%, rgba(167,139,250,0.07) 0%, rgba(56,189,248,0.04) 40%, transparent 70%);
-      pointer-events: none;
-    }
-
     .hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 960px;
+      max-width: var(--maxw);
       margin: 0 auto;
       width: 100%;
       display: flex;
       align-items: center;
       gap: 4rem;
     }
-
     .hero-text { flex: 1; min-width: 0; }
-
-    .hero-photo-wrap {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
+    .hero-photo-wrap { flex-shrink: 0; }
     .hero-photo {
-      width: 320px;
-      height: 320px;
+      width: 300px; height: 300px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center 12%;
-      border: 3px solid rgba(167,139,250,0.35);
-      outline: 1px solid rgba(167,139,250,0.1);
-      outline-offset: 5px;
+      border: 3px solid rgba(245,158,11,0.35);
+      outline: 1px solid rgba(59,130,246,0.15);
+      outline-offset: 6px;
       box-shadow:
-        0 0 0 8px rgba(167,139,250,0.04),
-        0 0 60px rgba(167,139,250,0.12),
-        0 20px 60px rgba(0,0,0,0.55);
-      transition: border-color 0.35s, box-shadow 0.35s, outline-color 0.35s;
+        0 0 0 8px rgba(234,88,12,0.04),
+        0 0 60px rgba(234,88,12,0.14),
+        0 0 90px rgba(29,78,216,0.10),
+        0 20px 60px rgba(0,0,0,0.6);
+      transition: border-color 0.4s, box-shadow 0.4s;
       display: block;
     }
-
     .hero-photo:hover {
-      border-color: rgba(167,139,250,0.65);
-      outline-color: rgba(167,139,250,0.2);
+      border-color: rgba(245,158,11,0.6);
       box-shadow:
-        0 0 0 8px rgba(167,139,250,0.07),
-        0 0 80px rgba(167,139,250,0.2),
-        0 20px 60px rgba(0,0,0,0.55);
+        0 0 0 8px rgba(234,88,12,0.07),
+        0 0 80px rgba(234,88,12,0.22),
+        0 0 110px rgba(29,78,216,0.16),
+        0 20px 60px rgba(0,0,0,0.6);
     }
 
-    .hero-label {
+    .hero-eyebrow {
       font-family: var(--mono);
       font-size: 0.7rem;
       font-weight: 500;
-      color: var(--purple);
-      letter-spacing: 0.14em;
+      color: var(--amber);
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.3rem;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.65rem;
     }
-
-    .hero-label::before {
+    .hero-eyebrow::before {
       content: '';
-      display: inline-block;
-      width: 18px;
-      height: 1px;
-      background: var(--purple);
+      width: 20px; height: 1px;
+      background: linear-gradient(90deg, var(--fire), var(--azure));
     }
-
     .hero-name {
       font-family: var(--mono);
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-size: clamp(2.9rem, 7.5vw, 5.6rem);
       font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: var(--text-1);
-      margin-bottom: 1.2rem;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
     }
-
-    .hero-name span { color: var(--purple); }
-
-    .hero-title {
+    .hero-role {
       font-family: var(--mono);
-      font-size: clamp(0.85rem, 2vw, 1rem);
-      font-weight: 400;
+      font-size: clamp(0.82rem, 2vw, 1rem);
       color: var(--text-2);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
       margin-bottom: 1.5rem;
     }
-
-    .hero-title .sep { color: var(--border-md); margin: 0 0.35em; }
-
-    .hero-subtitle {
-      font-size: 1.05rem;
+    .hero-role .sep { color: var(--border-md); margin: 0 0.4em; }
+    .hero-sub {
+      font-size: 1.06rem;
       font-weight: 300;
       color: var(--text-2);
       max-width: 540px;
-      margin-bottom: 2.5rem;
-      line-height: 1.75;
+      margin-bottom: 2rem;
+      line-height: 1.78;
     }
-
-    .hero-subtitle strong { color: var(--text-1); font-weight: 500; }
+    .hero-sub strong { color: var(--text-1); font-weight: 500; }
+    .hero-sub .warm { color: var(--amber); font-weight: 500; }
 
     .hero-status {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.55rem;
       font-family: var(--mono);
       font-size: 0.72rem;
-      color: var(--green);
-      background: var(--green-dim);
-      border: 1px solid rgba(74,222,128,0.2);
-      border-radius: 2px;
-      padding: 0.3rem 0.75rem;
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.06em;
+      color: var(--azure);
+      background: var(--cool-dim);
+      border: 1px solid rgba(59,130,246,0.22);
+      border-radius: 3px;
+      padding: 0.35rem 0.8rem;
+      margin-bottom: 2.25rem;
+      letter-spacing: 0.04em;
     }
-
-    .dot-pulse {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--green);
-      animation: pulse-dot 2.2s ease-in-out infinite;
+    .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--azure);
+      box-shadow: 0 0 8px var(--azure);
+      animation: pulse 2.2s ease-in-out infinite;
     }
+    @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1);} 50% { opacity: 0.4; transform: scale(0.75);} }
 
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.4; transform: scale(0.8); }
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.5rem;
       font-family: var(--mono);
       font-size: 0.75rem;
       font-weight: 500;
-      letter-spacing: 0.05em;
-      padding: 0.6rem 1.25rem;
-      border-radius: 2px;
+      letter-spacing: 0.04em;
+      padding: 0.65rem 1.25rem;
+      border-radius: 3px;
       text-decoration: none;
       transition: all 0.2s;
       cursor: pointer;
-      border: none;
+      border: 1px solid transparent;
     }
-
     .btn-primary {
-      background: var(--purple);
-      color: var(--bg-0);
+      background: linear-gradient(100deg, var(--gold), var(--fire));
+      color: var(--base);
+      font-weight: 600;
     }
-
-    .btn-primary:hover {
-      background: #c4b5fd;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(167,139,250,0.3);
-    }
-
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 7px 22px rgba(234,88,12,0.32); }
     .btn-ghost {
       background: transparent;
       color: var(--text-2);
-      border: 1px solid var(--border-md);
-    }
-
-    .btn-ghost:hover {
-      color: var(--text-1);
-      border-color: rgba(167,139,250,0.4);
-      background: var(--purple-dim);
-    }
-
-    /* ── SECTION BASE ─────────────────────────────────────── */
-    section { padding: 6rem 2rem; }
-
-    .section-inner { max-width: 900px; margin: 0 auto; }
-
-    .section-tag {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--purple);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-heading {
-      font-family: var(--mono);
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      font-weight: 700;
-      color: var(--text-1);
-      margin-bottom: 2.5rem;
-      line-height: 1.2;
-    }
-
-    .section-divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 0;
-    }
-
-    /* ── ABOUT ────────────────────────────────────────────── */
-    #about { background: var(--bg-1); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3.5rem;
-      align-items: start;
-    }
-
-    .about-text p {
-      color: var(--text-2);
-      font-size: 0.98rem;
-      line-height: 1.8;
-      margin-bottom: 1.1rem;
-    }
-
-    .about-text p:last-child { margin-bottom: 0; }
-    .about-text strong { color: var(--text-1); font-weight: 500; }
-
-    .about-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-    }
-
-    .stat-card {
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--purple);
-      padding: 0.9rem 1.25rem;
-    }
-
-    .stat-card.cyan   { border-left-color: var(--cyan); }
-    .stat-card.green  { border-left-color: var(--green); }
-    .stat-card.amber  { border-left-color: var(--amber); }
-
-    .stat-number {
-      font-family: var(--mono);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--purple);
-      line-height: 1;
-      margin-bottom: 0.2rem;
-    }
-
-    .stat-card.cyan  .stat-number { color: var(--cyan); }
-    .stat-card.green .stat-number { color: var(--green); }
-    .stat-card.amber .stat-number { color: var(--amber); }
-
-    .stat-label {
-      font-size: 0.78rem;
-      color: var(--text-3);
-      font-family: var(--mono);
-      letter-spacing: 0.03em;
-    }
-
-    /* ── SKILLS ───────────────────────────────────────────── */
-    #skills { background: var(--bg-0); }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
-
-    .skill-group {
-      background: var(--bg-1);
-      border: 1px solid var(--border);
-      padding: 1.25rem 1.4rem;
-      transition: border-color 0.2s;
-    }
-
-    .skill-group:hover { border-color: var(--border-md); }
-
-    /* AI section spans full width */
-    .skill-group.ai-primary {
-      grid-column: 1 / -1;
-      border-color: rgba(167,139,250,0.25);
-      background: linear-gradient(135deg, rgba(167,139,250,0.04) 0%, var(--bg-1) 60%);
-    }
-
-    .skill-group.ai-primary:hover { border-color: rgba(167,139,250,0.45); }
-
-    .skill-group-title {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--cyan);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 0.9rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .skill-group.ai-primary .skill-group-title {
-      color: var(--purple);
-      font-size: 0.7rem;
-    }
-
-    .skill-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-    }
-
-    .chip {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--text-2);
-      background: var(--bg-2);
-      border: 1px solid rgba(148,163,184,0.12);
-      padding: 0.22rem 0.6rem;
-      border-radius: 2px;
-      transition: all 0.15s;
-    }
-
-    .chip:hover {
-      color: var(--text-1);
-      border-color: rgba(56,189,248,0.3);
-      background: var(--cyan-dim);
-    }
-
-    .chip.ai {
-      border-color: rgba(167,139,250,0.2);
-      color: #c4b5fd;
-    }
-
-    .chip.ai:hover {
-      border-color: rgba(167,139,250,0.5);
-      background: var(--purple-dim);
-      color: var(--purple);
-    }
-
-    /* ── PROJECTS ─────────────────────────────────────────── */
-    #projects { background: var(--bg-1); }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .project-card {
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      border-top: 2px solid var(--cyan);
-      padding: 1.6rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      transition: all 0.2s;
-    }
-
-    .project-card.deployed  { border-top-color: var(--green); }
-    .project-card.in-dev    { border-top-color: var(--cyan); }
-    .project-card.ai-focus  {
-      border-top-color: var(--purple);
-      background: linear-gradient(160deg, rgba(167,139,250,0.05) 0%, var(--bg-2) 50%);
-    }
-
-    .project-card:hover {
-      transform: translateY(-3px);
       border-color: var(--border-md);
     }
+    .btn-ghost:hover { color: var(--text-1); border-color: var(--azure); background: var(--cool-dim); }
 
-    .project-card.deployed:hover  { box-shadow: 0 8px 32px rgba(74,222,128,0.08); }
-    .project-card.in-dev:hover    { box-shadow: 0 8px 32px rgba(56,189,248,0.08); }
-    .project-card.ai-focus:hover  { box-shadow: 0 8px 32px rgba(167,139,250,0.1); }
-
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .project-name {
+    /* ── SECTION BASE ──────────────────────────────────────────────── */
+    section { padding: 6rem 2rem; }
+    .inner { max-width: var(--maxw); margin: 0 auto; }
+    .tag {
       font-family: var(--mono);
-      font-size: 1.05rem;
+      font-size: 0.66rem;
       font-weight: 600;
+      color: var(--azure);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+    .tag b { color: var(--amber); font-weight: 600; }
+    .heading {
+      font-family: var(--mono);
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      font-weight: 700;
       color: var(--text-1);
+      margin-bottom: 2.4rem;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
     }
 
-    .badge {
+    /* ── ABOUT ─────────────────────────────────────────────────────── */
+    #about { background: linear-gradient(180deg, transparent, rgba(10,14,31,0.5) 50%, transparent); }
+    .about-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: start; }
+    .about-text p { color: var(--text-2); font-size: 0.99rem; line-height: 1.82; margin-bottom: 1.15rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text strong { color: var(--text-1); font-weight: 500; }
+    .about-text .warm { color: var(--amber); font-weight: 600; }
+    .creds {
       font-family: var(--mono);
-      font-size: 0.62rem;
+      font-size: 0.78rem;
+      color: var(--text-3);
+      line-height: 1.9;
+      margin-top: 0.4rem !important;
+    }
+
+    .stats { display: flex; flex-direction: column; gap: 1rem; }
+    .stat {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--azure);
+      padding: 1rem 1.25rem;
+      transition: transform 0.2s var(--ease), border-color 0.2s;
+    }
+    .stat:hover { transform: translateX(3px); border-left-color: var(--amber); }
+    .stat.warm { border-left-color: var(--gold); }
+    .stat.fire { border-left-color: var(--fire); }
+    .stat-k {
+      font-family: var(--mono);
+      font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 0.2rem 0.55rem;
-      border-radius: 2px;
-      white-space: nowrap;
-      flex-shrink: 0;
+      color: var(--azure);
+      margin-bottom: 0.3rem;
     }
+    .stat.warm .stat-k { color: var(--gold); }
+    .stat.fire .stat-k { color: var(--fire); }
+    .stat.amber-k .stat-k { color: var(--amber); }
+    .stat-v { font-size: 0.82rem; color: var(--text-3); font-family: var(--mono); line-height: 1.5; }
 
-    .badge-deployed {
-      background: var(--green-dim);
-      color: var(--green);
-      border: 1px solid rgba(74,222,128,0.25);
-    }
-
-    .badge-dev {
-      background: var(--cyan-dim);
-      color: var(--cyan);
-      border: 1px solid rgba(56,189,248,0.25);
-    }
-
-    .badge-ai {
-      background: var(--purple-dim);
-      color: var(--purple);
-      border: 1px solid rgba(167,139,250,0.3);
-    }
-
-    .project-desc {
-      font-size: 0.88rem;
+    /* ── STUDIO ────────────────────────────────────────────────────── */
+    .studio-lead {
+      font-size: 1.1rem;
+      font-weight: 300;
       color: var(--text-2);
+      max-width: 680px;
       line-height: 1.75;
-      flex: 1;
+      margin-bottom: 2.5rem;
     }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--cyan);
-      text-decoration: none;
-      opacity: 0.7;
-      transition: opacity 0.15s;
-      margin-top: auto;
-    }
-
-    .project-link:hover { opacity: 1; }
-
-    /* ── CONTACT ──────────────────────────────────────────── */
-    #contact { background: var(--bg-0); }
-
-    .contact-box {
-      background: var(--bg-1);
+    .studio-lead strong { color: var(--amber); font-weight: 500; }
+    .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2.5rem; }
+    .pillar {
+      background: var(--panel);
       border: 1px solid var(--border);
-      border-top: 2px solid var(--purple);
-      padding: 3rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 2rem;
-      align-items: center;
+      border-top: 2px solid var(--gold);
+      padding: 1.2rem 1.1rem;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s;
     }
+    .pillar:nth-child(2) { border-top-color: var(--fire); }
+    .pillar:nth-child(3) { border-top-color: var(--azure); }
+    .pillar:nth-child(4) { border-top-color: var(--cobalt); }
+    .pillar:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+    .pillar-n { font-family: var(--mono); font-size: 0.65rem; color: var(--text-3); letter-spacing: 0.1em; }
+    .pillar-t { font-family: var(--mono); font-size: 0.9rem; font-weight: 600; color: var(--text-1); margin: 0.5rem 0 0.35rem; }
+    .pillar-d { font-size: 0.78rem; color: var(--text-3); line-height: 1.55; }
+    .studio-foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem; }
+    .studio-slogan { font-family: var(--mono); font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
 
-    .contact-label {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--purple);
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-
-    .contact-heading {
-      font-family: var(--mono);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text-1);
-      margin-bottom: 0.75rem;
-    }
-
-    .contact-meta {
-      font-size: 0.85rem;
-      color: var(--text-3);
-      font-family: var(--mono);
-      margin-bottom: 0.35rem;
-    }
-
-    .contact-links {
+    /* ── WORK ──────────────────────────────────────────────────────── */
+    .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.15rem; }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--azure);
+      padding: 1.6rem;
       display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
+      flex-direction: column;
+      gap: 0.95rem;
+      transition: transform 0.2s var(--ease), border-color 0.2s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
     }
+    .card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(280px circle at var(--mx,50%) var(--my,0%), rgba(59,130,246,0.10), transparent 70%);
+      opacity: 0; transition: opacity 0.3s; pointer-events: none;
+    }
+    .card:hover::before { opacity: 1; }
+    .card:hover { transform: translateY(-3px); border-color: var(--border-md); box-shadow: 0 12px 34px rgba(0,0,0,0.4); }
+    .card.ai    { border-top-color: var(--amber); }
+    .card.client{ border-top-color: var(--fire); }
+    .card.ai::before    { background: radial-gradient(280px circle at var(--mx,50%) var(--my,0%), rgba(245,158,11,0.10), transparent 70%); }
+    .card.client::before{ background: radial-gradient(280px circle at var(--mx,50%) var(--my,0%), rgba(234,88,12,0.10), transparent 70%); }
 
-    /* ── FOOTER ───────────────────────────────────────────── */
+    .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; position: relative; }
+    .card-name { font-family: var(--mono); font-size: 1.05rem; font-weight: 600; color: var(--text-1); }
+    .badge {
+      font-family: var(--mono);
+      font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      padding: 0.22rem 0.55rem; border-radius: 3px; white-space: nowrap; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 0.35rem;
+    }
+    .badge::before { content: '●'; font-size: 0.5rem; }
+    .badge-live { background: var(--cool-dim); color: var(--azure); border: 1px solid rgba(59,130,246,0.28); }
+    .badge-ai   { background: var(--warm-dim); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+    .badge-client{ background: var(--fire-dim); color: var(--fire); border: 1px solid rgba(234,88,12,0.3); }
+    .card-desc { font-size: 0.88rem; color: var(--text-2); line-height: 1.72; flex: 1; position: relative; }
+    .card-desc strong { color: var(--text-1); font-weight: 500; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; position: relative; }
+    .chip {
+      font-family: var(--mono); font-size: 0.66rem;
+      color: var(--text-2);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(148,163,184,0.13);
+      padding: 0.2rem 0.55rem; border-radius: 3px;
+      transition: all 0.15s;
+    }
+    .chip:hover { color: var(--text-1); border-color: rgba(59,130,246,0.35); background: var(--cool-dim); }
+    .chip.ai { color: #fcd9a3; border-color: rgba(245,158,11,0.22); }
+    .chip.ai:hover { color: var(--amber); border-color: rgba(245,158,11,0.5); background: var(--warm-dim); }
+    .card-link {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-family: var(--mono); font-size: 0.7rem; color: var(--azure);
+      text-decoration: none; opacity: 0.75; transition: opacity 0.15s; margin-top: auto;
+      position: relative;
+    }
+    .card-link:hover { opacity: 1; }
+
+    /* ── SKILLS ────────────────────────────────────────────────────── */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+    .sgroup { background: var(--panel); border: 1px solid var(--border); padding: 1.25rem 1.35rem; transition: border-color 0.2s; }
+    .sgroup:hover { border-color: var(--border-md); }
+    .sgroup.ai-primary {
+      grid-column: 1 / -1;
+      border-color: rgba(245,158,11,0.24);
+      background: linear-gradient(135deg, rgba(245,158,11,0.045) 0%, var(--panel) 55%);
+    }
+    .sgroup.ai-primary:hover { border-color: rgba(245,158,11,0.42); }
+    .sgroup-t {
+      font-family: var(--mono); font-size: 0.66rem; font-weight: 600;
+      color: var(--azure); letter-spacing: 0.13em; text-transform: uppercase;
+      margin-bottom: 0.9rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border);
+    }
+    .sgroup.ai-primary .sgroup-t { color: var(--amber); font-size: 0.7rem; }
+    .schips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+
+    /* ── CONTACT ───────────────────────────────────────────────────── */
+    .contact-box {
+      background: linear-gradient(135deg, rgba(234,88,12,0.06), rgba(29,78,216,0.05));
+      border: 1px solid var(--border-md);
+      border-top: 2px solid var(--gold);
+      padding: 2.75rem;
+    }
+    .contact-lead { font-family: var(--mono); font-size: clamp(1.4rem,3.5vw,1.9rem); font-weight: 700; margin-bottom: 1.75rem; letter-spacing: -0.02em; }
+    .tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+    .track-k { font-family: var(--mono); font-size: 0.64rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .track.studio .track-k { color: var(--amber); }
+    .track.role .track-k { color: var(--azure); }
+    .track-d { font-size: 0.9rem; color: var(--text-2); line-height: 1.65; }
+    .track-d a { color: var(--text-1); text-decoration: none; border-bottom: 1px solid var(--border-warm); transition: border-color 0.2s; }
+    .track-d a:hover { border-color: var(--amber); }
+    .contact-links { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+
+    /* ── FOOTER ────────────────────────────────────────────────────── */
     footer {
-      background: var(--bg-1);
       border-top: 1px solid var(--border);
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.75rem;
+      padding: 1.75rem 2rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;
+      max-width: var(--maxw); margin: 0 auto;
     }
+    footer p { font-family: var(--mono); font-size: 0.66rem; color: var(--text-3); letter-spacing: 0.03em; }
+    footer .warm { color: var(--gold); }
 
-    footer p {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--text-3);
-      letter-spacing: 0.04em;
+    /* ── REVEAL ────────────────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ── MOTION ────────────────────────────────────────────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      .flow { animation: flow 8s linear infinite; }
+      .beam::after { animation: beam 4.8s linear infinite; }
+      .load { opacity: 0; animation: rise 1s var(--ease) forwards; }
+      .load.d1 { animation-delay: 0.05s; }
+      .load.d2 { animation-delay: 0.15s; }
+      .load.d3 { animation-delay: 0.25s; }
+      .load.d4 { animation-delay: 0.35s; }
+      .load.d5 { animation-delay: 0.45s; }
+      .load.d6 { animation-delay: 0.55s; }
     }
+    @keyframes flow { to { background-position: 300% 0; } }
+    @keyframes beam { to { left: 100%; } }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
-    /* ── RESPONSIVE ───────────────────────────────────────── */
-    @media (max-width: 800px) {
+    /* ── RESPONSIVE ────────────────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .pillars { grid-template-columns: 1fr 1fr; }
       .skills-grid { grid-template-columns: 1fr 1fr; }
-      .skill-group.ai-primary { grid-column: 1 / -1; }
     }
-
-    @media (max-width: 700px) {
-      nav { padding: 0 1.25rem; }
-      .nav-links { gap: 1.25rem; }
-      .nav-links li:nth-child(n+4) { display: none; }
-      section { padding: 4rem 1.25rem; }
-      .hero-inner { flex-direction: column-reverse; gap: 2rem; align-items: flex-start; }
-      .hero-photo { width: 200px; height: 200px; }
+    @media (max-width: 720px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links { display: none; }
+      section { padding: 4.5rem 1.2rem; }
+      .hero { padding: 7rem 1.2rem 3rem; }
+      .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 2.25rem; }
+      .hero-photo { width: 190px; height: 190px; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .about-stats { flex-direction: row; flex-wrap: wrap; }
-      .stat-card { flex: 1; min-width: 140px; }
+      .stats { flex-direction: row; flex-wrap: wrap; }
+      .stat { flex: 1; min-width: 150px; }
+      .pillars { grid-template-columns: 1fr; }
       .skills-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .contact-box { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+      .work-grid { grid-template-columns: 1fr; }
+      .contact-box { padding: 1.75rem 1.35rem; }
+      .tracks { grid-template-columns: 1fr; gap: 1.25rem; }
       footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
+  <div class="backdrop" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">joseph@soper.dev</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#studio">Studio</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="https://bezacore.com" target="_blank" rel="noopener" class="nav-cta">BezaCore Labs ↗</a>
+    </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <div class="hero-label">AI Software Engineer</div>
-        <h1 class="hero-name">Joseph<br><span>Soper</span></h1>
-        <p class="hero-title">
-          AI &amp; Agent Systems
-          <span class="sep">/</span>
-          Software Development
-          <span class="sep">/</span>
-          DevOps
-        </p>
-        <p class="hero-subtitle">
-          I build <strong>AI-powered software</strong> — autonomous agent pipelines, RAG systems with graph and vector memory, LLM-integrated APIs, and the production infrastructure to run it all. I work with models at the API level, chain them into workflows with tools like LangGraph and MCP, and deploy everything self-hosted or in the cloud.
-          <br><br>
-          Remote only &nbsp;·&nbsp; Petoskey, MI
-        </p>
-        <div class="hero-status">
-          <span class="dot-pulse"></span>
-          Actively seeking remote opportunities
-        </div>
-        <div class="hero-buttons">
-          <a href="https://github.com/thejollydev" target="_blank" rel="noopener" class="btn btn-primary">
-            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/joseph-soper-dev/" target="_blank" rel="noopener" class="btn btn-ghost">
-            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"/></svg>
-            LinkedIn
-          </a>
-          <a href="mailto:joseph@soper.dev" class="btn btn-ghost">
-            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            Email
-          </a>
-        </div>
-      </div>
-      <div class="hero-photo-wrap">
-        <img src="profile.png" alt="Joseph Soper" class="hero-photo" loading="eager" />
-      </div>
-    </div>
-  </section>
-
-  <hr class="section-divider" />
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-inner">
-      <p class="section-tag">// 01 &nbsp; Profile</p>
-      <h2 class="section-heading">About Me</h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>I'm a software engineer focused on building <strong>AI-powered systems</strong> — the kind that do real work autonomously. That means designing agent pipelines with multi-step reasoning, wiring tools and APIs into LLM workflows via MCP and LangGraph, and building the backend infrastructure that keeps it all running reliably in production.</p>
-          <p>My development stack is Python-first: <strong>FastAPI backends, async task queues, REST API design, PostgreSQL, and Redis</strong>. I've integrated AI at the API level across multiple providers — Anthropic, Google Vertex AI, and locally-hosted models via Ollama and LM Studio — and I understand how to move beyond basic prompting into <strong>context engineering, retrieval-augmented generation, and persistent memory architectures</strong> with vector and graph databases.</p>
-          <p>I also hold an uncommon advantage for a software engineer: I can take a project from code all the way through production deployment on infrastructure I built myself. My homelab runs a production private cloud — Proxmox hypervisor, GPU passthrough for local LLM inference, container orchestration, full observability stack — automated end-to-end with Terraform and Ansible. I learn by shipping things that actually run.</p>
-          <p>IBM Back-End Development Professional Certificate. PCEP Python certification. Completing BS Computer Science. Google Cloud Professional Architect in progress.</p>
-        </div>
-        <div class="about-stats">
-          <div class="stat-card">
-            <div class="stat-number">AI-First</div>
-            <div class="stat-label">Agent pipelines, RAG, MCP, LangGraph, multi-provider LLM integration</div>
-          </div>
-          <div class="stat-card cyan">
-            <div class="stat-number">Full-Stack</div>
-            <div class="stat-label">Python · FastAPI · REST APIs · PostgreSQL · async workflows</div>
-          </div>
-          <div class="stat-card green">
-            <div class="stat-number">Deployed</div>
-            <div class="stat-label">Self-hosted LLM inference, production cloud infra, GPU-accelerated AI stack</div>
-          </div>
-          <div class="stat-card amber">
-            <div class="stat-number">IaC</div>
-            <div class="stat-label">Terraform + Ansible automation from bare metal to running service</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="section-divider" />
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-inner">
-      <p class="section-tag">// 02 &nbsp; Capabilities</p>
-      <h2 class="section-heading">Technical Skills</h2>
-      <div class="skills-grid">
-
-        <!-- AI — full width, most prominent -->
-        <div class="skill-group ai-primary">
-          <div class="skill-group-title">AI Engineering &amp; Agent Systems</div>
-          <div class="skill-chips">
-            <span class="chip ai">Autonomous Agents</span>
-            <span class="chip ai">LangGraph</span>
-            <span class="chip ai">MCP Servers</span>
-            <span class="chip ai">Multi-Agent Orchestration</span>
-            <span class="chip ai">RAG Pipelines</span>
-            <span class="chip ai">Context Engineering</span>
-            <span class="chip ai">Prompt Engineering</span>
-            <span class="chip ai">Tool Use / Function Calling</span>
-            <span class="chip ai">Vertex AI</span>
-            <span class="chip ai">Anthropic API</span>
-            <span class="chip ai">Ollama</span>
-            <span class="chip ai">LM Studio</span>
-            <span class="chip ai">LiteLLM</span>
-            <span class="chip ai">Open WebUI</span>
-            <span class="chip ai">Qdrant</span>
-            <span class="chip ai">Neo4j</span>
-            <span class="chip ai">Mem0</span>
-            <span class="chip ai">Vector Search</span>
-            <span class="chip ai">Knowledge Graphs</span>
-            <span class="chip ai">Antigravity (Google)</span>
-            <span class="chip ai">ROCm / GPU Inference</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-title">Software Development</div>
-          <div class="skill-chips">
-            <span class="chip">Python</span>
-            <span class="chip">FastAPI</span>
-            <span class="chip">REST API Design</span>
-            <span class="chip">Async / Celery</span>
-            <span class="chip">PostgreSQL</span>
-            <span class="chip">Redis</span>
-            <span class="chip">SQL</span>
-            <span class="chip">Bash</span>
-            <span class="chip">Git</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-title">DevOps &amp; Automation</div>
-          <div class="skill-chips">
-            <span class="chip">Docker</span>
-            <span class="chip">Docker Compose</span>
-            <span class="chip">Terraform</span>
-            <span class="chip">Ansible</span>
-            <span class="chip">GitHub Actions</span>
-            <span class="chip">CI/CD</span>
-            <span class="chip">IaC</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-title">Cloud &amp; Infrastructure</div>
-          <div class="skill-chips">
-            <span class="chip">Google Cloud</span>
-            <span class="chip">Cloudflare</span>
-            <span class="chip">Proxmox VE</span>
-            <span class="chip">KVM / QEMU</span>
-            <span class="chip">ZFS</span>
-            <span class="chip">Linux</span>
-            <span class="chip">Traefik v3</span>
-            <span class="chip">WireGuard</span>
-            <span class="chip">Prometheus</span>
-            <span class="chip">Grafana</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <hr class="section-divider" />
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-inner">
-      <p class="section-tag">// 03 &nbsp; Work</p>
-      <h2 class="section-heading">Projects</h2>
-      <div class="projects-grid">
-
-        <div class="project-card ai-focus">
-          <div class="project-header">
-            <span class="project-name">forge-cortex</span>
-            <span class="badge badge-ai">AI System</span>
-          </div>
-          <p class="project-desc">
-            Self-hosted AI assistant built around a <strong style="color:var(--text-1);font-weight:500;">persistent, graph-backed memory architecture</strong>. FastAPI orchestration layer connects Open WebUI, LiteLLM for multi-model routing, locally-hosted LLMs via Ollama (AMD GPU, ROCm), Qdrant for vector retrieval, Neo4j for knowledge graph storage, and Mem0 for long-term memory management. Designed as a foundation for agentic workflows — the system remembers context across sessions and can retrieve relevant knowledge to ground its responses.
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-eyebrow load d1">Founder — BezaCore Labs</div>
+          <h1 class="hero-name load d2">Joseph<br><span class="flow">Soper</span></h1>
+          <p class="hero-role load d3">
+            AI &amp; Agent Systems <span class="sep">/</span> Software Engineering <span class="sep">/</span> DevOps &amp; Cloud
           </p>
-          <div class="project-tags">
-            <span class="chip ai">Agents</span>
-            <span class="chip ai">RAG</span>
-            <span class="chip ai">LiteLLM</span>
-            <span class="chip ai">Ollama</span>
-            <span class="chip ai">Qdrant</span>
-            <span class="chip ai">Neo4j</span>
-            <span class="chip ai">Mem0</span>
-            <span class="chip">FastAPI</span>
-            <span class="chip">Python</span>
-            <span class="chip">Open WebUI</span>
-          </div>
-        </div>
-
-        <div class="project-card ai-focus">
-          <div class="project-header">
-            <span class="project-name">BezaChain</span>
-            <span class="badge badge-ai">AI System</span>
-          </div>
-          <p class="project-desc">
-            Async AI orchestration platform with intelligent routing across local and cloud LLMs. FastAPI backend exposes a clean REST API surface; Celery handles background task execution with Redis as broker and PostgreSQL for persistent job tracking. Routes requests based on task complexity, cost, and latency requirements — local Ollama models for throughput, cloud providers for capability.
+          <p class="hero-sub load d4">
+            I build <strong>software, AI systems, and the infrastructure to run them.</strong>
+            Founder of <span class="warm">BezaCore Labs</span> — a DevOps, AI &amp; software studio — and a
+            lifelong builder who ships things that actually run in production.
           </p>
-          <div class="project-tags">
-            <span class="chip ai">LLM Routing</span>
-            <span class="chip ai">Ollama</span>
-            <span class="chip ai">LangChain</span>
-            <span class="chip">FastAPI</span>
-            <span class="chip">Python</span>
-            <span class="chip">Celery</span>
-            <span class="chip">Redis</span>
-            <span class="chip">PostgreSQL</span>
+          <div class="hero-status load d5">
+            <span class="dot"></span>
+            Building BezaCore Labs · open to select remote roles &amp; collaboration
+          </div>
+          <div class="hero-buttons load d6">
+            <a href="https://bezacore.com" target="_blank" rel="noopener" class="btn btn-primary">Visit BezaCore Labs ↗</a>
+            <a href="#contact" class="btn btn-ghost">Get in touch</a>
+            <a href="https://github.com/thejollydev" target="_blank" rel="noopener" class="btn btn-ghost">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
           </div>
         </div>
-
-        <div class="project-card deployed">
-          <div class="project-header">
-            <span class="project-name">BezaForge Infrastructure</span>
-            <span class="badge badge-deployed">&#x25CF; Deployed</span>
-          </div>
-          <p class="project-desc">
-            Production private cloud built from bare metal — Proxmox VE hypervisor, AMD GPU passthrough for local LLM inference (ROCm 7.2), 5-VLAN Omada SDN with inter-VLAN firewall policy, 12+ Docker services behind Traefik v3 with wildcard TLS, and a full observability stack (Prometheus, Grafana, Loki, Uptime Kuma). Entire environment is codified: Terraform manages VM provisioning, Ansible handles configuration.
-          </p>
-          <div class="project-tags">
-            <span class="chip">Terraform</span>
-            <span class="chip">Ansible</span>
-            <span class="chip">Proxmox</span>
-            <span class="chip">Docker</span>
-            <span class="chip">Prometheus</span>
-            <span class="chip">Grafana</span>
-            <span class="chip">Traefik</span>
-            <span class="chip">ZFS</span>
-          </div>
-          <a href="https://github.com/thejollydev/bezaforge-infrastructure" target="_blank" rel="noopener" class="project-link">
-            <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            github.com/thejollydev/bezaforge-infrastructure
-          </a>
+        <div class="hero-photo-wrap load d3">
+          <img src="profile.png" alt="Joseph Soper" class="hero-photo" loading="eager" />
         </div>
-
-        <div class="project-card deployed">
-          <div class="project-header">
-            <span class="project-name">arch-ansible</span>
-            <span class="badge badge-deployed">&#x25CF; Deployed</span>
-          </div>
-          <p class="project-desc">
-            Ansible playbooks for fully automated Arch Linux developer environment provisioning from bare metal — packages, dotfiles, services, and developer toolchain in a single idempotent run.
-          </p>
-          <div class="project-tags">
-            <span class="chip">Ansible</span>
-            <span class="chip">Arch Linux</span>
-            <span class="chip">Bash</span>
-            <span class="chip">systemd</span>
-          </div>
-          <a href="https://github.com/thejollydev/arch-ansible" target="_blank" rel="noopener" class="project-link">
-            <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            github.com/thejollydev/arch-ansible
-          </a>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <hr class="section-divider" />
+    <div class="beam"></div>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-inner">
-      <p class="section-tag">// 04 &nbsp; Contact</p>
-      <h2 class="section-heading">Let's Connect</h2>
-      <div class="contact-box">
-        <div>
-          <div class="contact-label">Status</div>
-          <h3 class="contact-heading">Open to Remote Opportunities</h3>
-          <p class="contact-meta">Targeting: AI Engineer · Software Developer · DevOps · Automation · Technical Support</p>
-          <p class="contact-meta">Remote only &nbsp;·&nbsp; Petoskey, MI</p>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="inner">
+        <p class="tag reveal">// 01 &nbsp;—&nbsp; <b>Profile</b></p>
+        <h2 class="heading reveal">Builder first, founder now.</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="reveal">I've been building software since I was a teenager. Before I made it my full-time craft, I spent <strong>10+ years in sales</strong> — which turned out to be an asset, not a detour. I read what people actually need, translate it into what to build, and stay focused on the outcome, not just the code.</p>
+            <p class="reveal">Today I'm the founder of <span class="warm">BezaCore Labs</span>, a DevOps, AI/agent &amp; software-development studio. My work spans the full arc of shipping modern software: <strong>Python / FastAPI backends and REST APIs</strong>, <strong>LLM-integrated agent pipelines and RAG systems</strong>, and the <strong>production cloud infrastructure</strong> — self-hosted or on GCP — to run all of it reliably.</p>
+            <p class="reveal">I hold an uncommon advantage: I can take a project from a blank repo to a running production service on infrastructure I built and automated myself. My homelab, <strong>BezaForge</strong>, is a real private cloud — Proxmox, GPU-passthrough local LLM inference, containerized services behind Traefik, full observability — codified end-to-end with Terraform and Ansible. I learn by shipping.</p>
+            <p class="creds reveal">Google Cloud Associate Cloud Engineer &nbsp;·&nbsp; IBM Back-End Development Professional &nbsp;·&nbsp; BS Computer Science (in progress, 2027)</p>
+          </div>
+          <div class="stats">
+            <div class="stat warm reveal">
+              <div class="stat-k">Founder</div>
+              <div class="stat-v">BezaCore Labs — a DevOps, AI &amp; software studio</div>
+            </div>
+            <div class="stat amber-k reveal">
+              <div class="stat-k" style="color:var(--amber)">AI-First</div>
+              <div class="stat-v">Agents · RAG · MCP · LangGraph · multi-provider LLMs</div>
+            </div>
+            <div class="stat reveal">
+              <div class="stat-k">Full-Stack</div>
+              <div class="stat-v">Python · FastAPI · REST · PostgreSQL · async</div>
+            </div>
+            <div class="stat fire reveal">
+              <div class="stat-k">Shipped</div>
+              <div class="stat-v">Terraform + Ansible · self-hosted GPU AI · live production</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="beam"></div>
+
+    <!-- STUDIO -->
+    <section id="studio">
+      <div class="inner">
+        <p class="tag reveal">// 02 &nbsp;—&nbsp; <b>The Studio</b></p>
+        <h2 class="heading reveal">BezaCore Labs</h2>
+        <p class="studio-lead reveal">I founded <strong>BezaCore Labs</strong> to build and run cloud-native software and AI — productized services for clients, plus products of our own. Four pillars, one through-line: build-and-run modern software.</p>
+        <div class="pillars">
+          <div class="pillar reveal">
+            <div class="pillar-n">01</div>
+            <div class="pillar-t">Software Dev</div>
+            <div class="pillar-d">Apps, APIs &amp; backends — from spec to shipped.</div>
+          </div>
+          <div class="pillar reveal">
+            <div class="pillar-n">02</div>
+            <div class="pillar-t">DevOps &amp; Cloud</div>
+            <div class="pillar-d">Infrastructure, IaC &amp; deployment that stays up.</div>
+          </div>
+          <div class="pillar reveal">
+            <div class="pillar-n">03</div>
+            <div class="pillar-t">AI &amp; Agents</div>
+            <div class="pillar-d">LLM integration, agent pipelines &amp; RAG systems.</div>
+          </div>
+          <div class="pillar reveal">
+            <div class="pillar-n">04</div>
+            <div class="pillar-t">Automation</div>
+            <div class="pillar-d">Workflows &amp; tooling that remove the manual toil.</div>
+          </div>
+        </div>
+        <div class="studio-foot reveal">
+          <div class="studio-slogan flow">Build Better. Build Beyond.</div>
+          <a href="https://bezacore.com" target="_blank" rel="noopener" class="btn btn-primary">Explore the studio ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="beam"></div>
+
+    <!-- WORK -->
+    <section id="work">
+      <div class="inner">
+        <p class="tag reveal">// 03 &nbsp;—&nbsp; <b>Selected Work</b></p>
+        <h2 class="heading reveal">Things I've shipped.</h2>
+        <div class="work-grid">
+
+          <div class="card reveal spot">
+            <div class="card-head">
+              <span class="card-name">BezaForge Infrastructure</span>
+              <span class="badge badge-live">Deployed</span>
+            </div>
+            <p class="card-desc">A production private cloud built from bare metal — <strong>Proxmox VE</strong> hypervisor, AMD GPU passthrough for local LLM inference (ROCm), a multi-VLAN Omada SDN with inter-VLAN firewall policy, a dozen Docker services behind <strong>Traefik v3</strong> with wildcard TLS, and a full observability stack (Prometheus, Grafana, Loki, Uptime Kuma). Every layer is codified: Terraform provisions the VMs, Ansible configures them.</p>
+            <div class="chips">
+              <span class="chip">Terraform</span><span class="chip">Ansible</span><span class="chip">Proxmox</span><span class="chip">Docker</span><span class="chip">Traefik</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">ZFS</span>
+            </div>
+            <a href="https://github.com/thejollydev/bezaforge-infrastructure" target="_blank" rel="noopener" class="card-link">github.com/thejollydev/bezaforge-infrastructure →</a>
+          </div>
+
+          <div class="card client reveal spot">
+            <div class="card-head">
+              <span class="card-name">Petoskey Church of Christ</span>
+              <span class="badge badge-client">Live · Client</span>
+            </div>
+            <p class="card-desc">A full production website designed, built, deployed, and maintained for a local congregation — <strong>WordPress + Divi 5</strong>, a Dockerized local build, git-based deploy, and transactional email. Real client work: content architecture, a members' photo/media hub, and a sanctuary-display slideshow, handed off so non-technical staff can run it themselves.</p>
+            <div class="chips">
+              <span class="chip">WordPress</span><span class="chip">Divi 5</span><span class="chip">Docker</span><span class="chip">PHP</span><span class="chip">git-deploy</span><span class="chip">Performance</span>
+            </div>
+            <a href="https://petoskeychurchofchrist.com" target="_blank" rel="noopener" class="card-link">petoskeychurchofchrist.com →</a>
+          </div>
+
+          <div class="card ai reveal spot">
+            <div class="card-head">
+              <span class="card-name">Brizza</span>
+              <span class="badge badge-ai">Live · AI</span>
+            </div>
+            <p class="card-desc">My personal AI assistant, running live on a self-hosted <strong>agent bridge</strong>. Routes across models — cloud APIs with a local Ollama fallback — with tool use over my own files and services, a Discord interface and a web dashboard, scheduled autonomous tasks, and full <strong>LangFuse</strong> tracing. A working sandbox for the agent patterns I build for clients.</p>
+            <div class="chips">
+              <span class="chip ai">Agents</span><span class="chip ai">Tool Use</span><span class="chip ai">Ollama</span><span class="chip ai">LangFuse</span><span class="chip">Python</span><span class="chip">Discord</span><span class="chip">APScheduler</span>
+            </div>
+          </div>
+
+          <div class="card reveal spot">
+            <div class="card-head">
+              <span class="card-name">arch-ansible</span>
+              <span class="badge badge-live">Deployed</span>
+            </div>
+            <p class="card-desc">One idempotent Ansible run that provisions a complete <strong>Arch Linux</strong> developer workstation from bare metal — packages, dotfiles, services, and the full developer toolchain. The automation that stands up the machines the rest of this work is built on.</p>
+            <div class="chips">
+              <span class="chip">Ansible</span><span class="chip">Arch Linux</span><span class="chip">Bash</span><span class="chip">systemd</span><span class="chip">GNU Stow</span>
+            </div>
+            <a href="https://github.com/thejollydev/arch-ansible" target="_blank" rel="noopener" class="card-link">github.com/thejollydev/arch-ansible →</a>
+          </div>
+
+          <div class="card reveal spot">
+            <div class="card-head">
+              <span class="card-name">bezacore.com</span>
+              <span class="badge badge-live">Live</span>
+            </div>
+            <p class="card-desc">The BezaCore Labs studio site — designed and shipped end-to-end. <strong>Next.js 16</strong> server build on <strong>Cloud Run</strong> (containerized, output:standalone), custom circuit-powered hero motion, contact + waitlist API routes, and Google Cloud DNS. Built, deployed, and running in production.</p>
+            <div class="chips">
+              <span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">Tailwind 4</span><span class="chip">Cloud Run</span><span class="chip">GCP</span>
+            </div>
+            <a href="https://bezacore.com" target="_blank" rel="noopener" class="card-link">bezacore.com →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="beam"></div>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="inner">
+        <p class="tag reveal">// 04 &nbsp;—&nbsp; <b>Capabilities</b></p>
+        <h2 class="heading reveal">Technical Skills</h2>
+        <div class="skills-grid">
+
+          <div class="sgroup ai-primary reveal">
+            <div class="sgroup-t">AI Engineering &amp; Agent Systems</div>
+            <div class="schips">
+              <span class="chip ai">Autonomous Agents</span><span class="chip ai">LangGraph</span><span class="chip ai">MCP Servers</span><span class="chip ai">Multi-Agent Orchestration</span><span class="chip ai">RAG Pipelines</span><span class="chip ai">Context Engineering</span><span class="chip ai">Prompt Engineering</span><span class="chip ai">Tool Use / Function Calling</span><span class="chip ai">Vertex AI</span><span class="chip ai">Anthropic API</span><span class="chip ai">Ollama</span><span class="chip ai">LM Studio</span><span class="chip ai">LiteLLM</span><span class="chip ai">Open WebUI</span><span class="chip ai">Qdrant</span><span class="chip ai">Neo4j</span><span class="chip ai">Vector Search</span><span class="chip ai">Knowledge Graphs</span><span class="chip ai">ROCm / GPU Inference</span>
+            </div>
+          </div>
+
+          <div class="sgroup reveal">
+            <div class="sgroup-t">Software Development</div>
+            <div class="schips">
+              <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">REST API Design</span><span class="chip">Async / Celery</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">SQL</span><span class="chip">Bash</span><span class="chip">Git</span>
+            </div>
+          </div>
+
+          <div class="sgroup reveal">
+            <div class="sgroup-t">DevOps &amp; Automation</div>
+            <div class="schips">
+              <span class="chip">Docker</span><span class="chip">Docker Compose</span><span class="chip">Terraform</span><span class="chip">Ansible</span><span class="chip">GitHub Actions</span><span class="chip">CI/CD</span><span class="chip">IaC</span>
+            </div>
+          </div>
+
+          <div class="sgroup reveal">
+            <div class="sgroup-t">Cloud &amp; Infrastructure</div>
+            <div class="schips">
+              <span class="chip">Google Cloud</span><span class="chip">Cloud Run</span><span class="chip">Cloudflare</span><span class="chip">Proxmox VE</span><span class="chip">KVM / QEMU</span><span class="chip">ZFS</span><span class="chip">Linux</span><span class="chip">Traefik v3</span><span class="chip">WireGuard</span><span class="chip">Prometheus</span><span class="chip">Grafana</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="beam"></div>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="inner">
+        <p class="tag reveal">// 05 &nbsp;—&nbsp; <b>Contact</b></p>
+        <h2 class="heading reveal">Let's build something.</h2>
+        <div class="contact-box reveal">
+          <div class="contact-lead flow">Two ways to work together.</div>
+          <div class="tracks">
+            <div class="track studio">
+              <div class="track-k">▸ Work with the studio</div>
+              <div class="track-d">Need software, AI, DevOps, or automation built and run? That's <a href="https://bezacore.com" target="_blank" rel="noopener">BezaCore Labs</a> — reach out for client work and project inquiries.</div>
+            </div>
+            <div class="track role">
+              <div class="track-k">▸ Roles &amp; collaboration</div>
+              <div class="track-d">Open to select <strong style="color:var(--text-1);font-weight:500">remote</strong> engineering roles and collaborations — AI, backend, or DevOps. Let's talk.</div>
+            </div>
+          </div>
           <div class="contact-links">
             <a href="mailto:joseph@soper.dev" class="btn btn-primary">joseph@soper.dev</a>
             <a href="https://www.linkedin.com/in/joseph-soper-dev/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
             <a href="https://github.com/thejollydev" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
           </div>
         </div>
-        <div style="text-align:right;">
-          <div class="hero-status" style="display:inline-flex;">
-            <span class="dot-pulse"></span>
-            Available now
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 Joseph Soper &nbsp;·&nbsp; Remote Only &nbsp;·&nbsp; Petoskey, MI</p>
-    <p>BS CS Expected 2027 &nbsp;·&nbsp; IBM Backend Dev Cert &nbsp;·&nbsp; PCEP &nbsp;·&nbsp; GCP Architect (In Progress)</p>
+    <p>© 2026 Joseph Soper &nbsp;·&nbsp; Founder, <span class="warm">BezaCore Labs</span> &nbsp;·&nbsp; Remote &nbsp;·&nbsp; Petoskey, MI</p>
+    <p>GCP Associate Cloud Engineer &nbsp;·&nbsp; IBM Back-End Dev &nbsp;·&nbsp; BS CS 2027</p>
   </footer>
+
+  <script>
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+    // Cursor spotlight on cards
+    document.querySelectorAll('.spot').forEach((card) => {
+      card.addEventListener('pointermove', (ev) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((ev.clientX - r.left) / r.width) * 100 + '%');
+        card.style.setProperty('--my', ((ev.clientY - r.top) / r.height) * 100 + '%');
+      });
+    });
+  </script>
 
 </body>
 </html>
