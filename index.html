@@ -615,7 +615,10 @@
           </div>
         </div>
         <div class="hero-photo-wrap load d3">
-          <img src="profile.png" alt="Joseph Soper" class="hero-photo" loading="eager" />
+          <picture>
+          <source srcset="profile.webp" type="image/webp" />
+          <img src="profile.jpg" alt="Joseph Soper" class="hero-photo" width="700" height="938" loading="eager" fetchpriority="high" />
+        </picture>
         </div>
       </div>
     </section>
