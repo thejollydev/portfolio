@@ -1,6 +1,6 @@
 # soper.dev — Portfolio
 
-Personal portfolio site for Joseph Soper, Infrastructure Engineer.
+Personal portfolio site for **Joseph Soper** — founder of [BezaCore Labs](https://bezacore.com), a DevOps / AI / software development studio.
 
 **Live at [soper.dev](https://soper.dev)**
 
@@ -8,45 +8,58 @@ Personal portfolio site for Joseph Soper, Infrastructure Engineer.
 
 ## What It Is
 
-A single `index.html` file — no framework, no build step, no dependencies. Hosted on GitHub Pages with a custom domain.
+A single `index.html` file — no framework, no build step, no dependencies. All CSS and JavaScript are inline. Hosted on GitHub Pages with a custom domain.
 
-**Design:** Dark theme, IBM Plex Mono + IBM Plex Sans typography, blueprint grid hero, cyan/green/purple status system.
+**Design:** *Ember & Cobalt* on a dark surface, shared with [bezacore.com](https://bezacore.com) so the two sites read as siblings. IBM Plex Mono + IBM Plex Sans throughout.
 
-**Sections:** Hero · About · Skills · Projects · Contact
+**Sections:** Hero · About · Studio · Work · Skills · Contact
 
 ---
 
 ## Tech
 
-- Pure HTML/CSS/JS — no framework, no bundler
+- Pure HTML/CSS/JS — no framework, no bundler, no package manager
 - Google Fonts (IBM Plex Mono, IBM Plex Sans)
-- GitHub Pages + Cloudflare DNS (CNAME)
+- Hamburger nav below 720px
+- Motion behind `prefers-reduced-motion`
+- GitHub Pages + Cloudflare DNS (`CNAME`)
 
 ---
 
-## Projects Featured
+## Work Featured
 
-| Project | Status | Repo |
-|---------|--------|------|
-| BezaForge Infrastructure Platform | Deployed | [bezaforge-infrastructure](https://github.com/thejollydev/bezaforge-infrastructure) |
-| arch-ansible | Deployed | [arch-ansible](https://github.com/thejollydev/arch-ansible) |
-| BezaChain | In Development | — |
-| Homelab Pulse | In Development | — |
+Shipped and running only.
+
+| Project | What | Link |
+|---------|------|------|
+| BezaForge Infrastructure | Self-hosted Proxmox/Docker platform — Terraform, Ansible, Prometheus/Grafana | [bezaforge-infrastructure](https://github.com/thejollydev/bezaforge-infrastructure) |
+| Petoskey Church of Christ | WordPress site, designed and deployed | [petoskeychurchofchrist.com](https://petoskeychurchofchrist.com) |
+| Brizza | Personal AI assistant on a self-hosted agent bridge | — |
+| ansible-arch | Idempotent Arch Linux workstation provisioning | [ansible-arch](https://github.com/thejollydev/ansible-arch) |
+| bezacore.com | BezaCore Labs studio site — Next.js on Cloud Run | [bezacore.com](https://bezacore.com) |
 
 ---
 
 ## Local Development
 
-No build step needed. Open `index.html` directly in a browser.
+No build step needed.
 
 ```bash
 git clone https://github.com/thejollydev/portfolio.git
 cd portfolio
-open index.html   # or just drag into browser
+python -m http.server 8000    # then open http://localhost:8000
 ```
+
+Or open `index.html` directly in a browser.
 
 ---
 
 ## Contact
 
 [joseph@soper.dev](mailto:joseph@soper.dev) · [LinkedIn](https://www.linkedin.com/in/joseph-soper-dev/) · [GitHub](https://github.com/thejollydev)
+
+---
+
+## License
+
+[MIT](LICENSE)
